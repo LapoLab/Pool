@@ -1,0 +1,3 @@
+#!/bin/bash
+
+DEBUGSYM=1 make && cp stratum /var/stratum

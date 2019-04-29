@@ -1,0 +1,3 @@
+#!/bin/bash
+
+mysql -u root --password="YourPassword" --database="yiimpfrontend" < $1

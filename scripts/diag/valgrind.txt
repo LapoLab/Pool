@@ -1,0 +1,1163 @@
+==27479== Memcheck, a memory error detector
+==27479== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
+==27479== Using Valgrind-3.13.0 and LibVEX; rerun with -h for copyright info
+==27479== Command: ./stratum config/lyra2zz
+==27479== Parent PID: 27478
+==27479== 
+--27479-- 
+--27479-- Valgrind options:
+--27479--    --log-file=/home/pool/scripts/diag/valgrind.txt
+--27479--    -v
+--27479--    --show-leak-kinds=all
+--27479--    --leak-check=full
+--27479-- Contents of /proc/version:
+--27479--   Linux version 4.15.0-38-generic (buildd@lcy01-amd64-023) (gcc version 7.3.0 (Ubuntu 7.3.0-16ubuntu3)) #41-Ubuntu SMP Wed Oct 10 10:59:38 UTC 2018
+--27479-- 
+--27479-- Arch and hwcaps: AMD64, LittleEndian, amd64-cx16-lzcnt-rdtscp-sse3-avx-avx2-bmi
+--27479-- Page sizes: currently 4096, max supported 4096
+--27479-- Valgrind library directory: /usr/lib/valgrind
+--27479-- Reading syms from /var/stratum/stratum
+--27479-- Reading syms from /lib/x86_64-linux-gnu/ld-2.27.so
+--27479--   Considering /lib/x86_64-linux-gnu/ld-2.27.so ..
+--27479--   .. CRC mismatch (computed 1b7c895e wanted 2943108a)
+--27479--   Considering /usr/lib/debug/lib/x86_64-linux-gnu/ld-2.27.so ..
+--27479--   .. CRC is valid
+--27479-- Reading syms from /usr/lib/valgrind/memcheck-amd64-linux
+--27479--   Considering /usr/lib/valgrind/memcheck-amd64-linux ..
+--27479--   .. CRC mismatch (computed c25f395c wanted 0a9602a8)
+--27479--    object doesn't have a symbol table
+--27479--    object doesn't have a dynamic symbol table
+--27479-- Scheduler: using generic scheduler lock implementation.
+--27479-- Reading suppressions file: /usr/lib/valgrind/default.supp
+==27479== embedded gdbserver: reading from /tmp/vgdb-pipe-from-vgdb-to-27479-by-root-on-???
+==27479== embedded gdbserver: writing to   /tmp/vgdb-pipe-to-vgdb-from-27479-by-root-on-???
+==27479== embedded gdbserver: shared mem   /tmp/vgdb-pipe-shared-mem-vgdb-27479-by-root-on-???
+==27479== 
+==27479== TO CONTROL THIS PROCESS USING vgdb (which you probably
+==27479== don't want to do, unless you know exactly what you're doing,
+==27479== or are doing some strange experiment):
+==27479==   /usr/lib/valgrind/../../bin/vgdb --pid=27479 ...command...
+==27479== 
+==27479== TO DEBUG THIS PROCESS USING GDB: start GDB like this
+==27479==   /path/to/gdb ./stratum
+==27479== and then give GDB the following command
+==27479==   target remote | /usr/lib/valgrind/../../bin/vgdb --pid=27479
+==27479== --pid is optional if only one valgrind process is running
+==27479== 
+--27479-- REDIR: 0x401f2f0 (ld-linux-x86-64.so.2:strlen) redirected to 0x58060901 (???)
+--27479-- REDIR: 0x401f0d0 (ld-linux-x86-64.so.2:index) redirected to 0x5806091b (???)
+--27479-- Reading syms from /usr/lib/valgrind/vgpreload_core-amd64-linux.so
+--27479--   Considering /usr/lib/valgrind/vgpreload_core-amd64-linux.so ..
+--27479--   .. CRC mismatch (computed 4b63d83e wanted 670599e6)
+--27479--    object doesn't have a symbol table
+--27479-- Reading syms from /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so
+--27479--   Considering /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so ..
+--27479--   .. CRC mismatch (computed a4b37bee wanted 8ad4dc94)
+--27479--    object doesn't have a symbol table
+==27479== WARNING: new redirection conflicts with existing -- ignoring it
+--27479--     old: 0x0401f2f0 (strlen              ) R-> (0000.0) 0x58060901 ???
+--27479--     new: 0x0401f2f0 (strlen              ) R-> (2007.0) 0x04c32db0 strlen
+--27479-- REDIR: 0x401d360 (ld-linux-x86-64.so.2:strcmp) redirected to 0x4c33ee0 (strcmp)
+--27479-- REDIR: 0x401f830 (ld-linux-x86-64.so.2:mempcpy) redirected to 0x4c374f0 (mempcpy)
+--27479-- Reading syms from /lib/x86_64-linux-gnu/libpthread-2.27.so
+--27479--   Considering /usr/lib/debug/.build-id/28/c6aade70b2d40d1f0f3d0a1a0cad1ab816448f.debug ..
+--27479--   .. build-id is valid
+--27479-- Reading syms from /usr/lib/x86_64-linux-gnu/libgmp.so.10.3.2
+--27479--    object doesn't have a symbol table
+--27479-- Reading syms from /lib/x86_64-linux-gnu/libm-2.27.so
+--27479--   Considering /lib/x86_64-linux-gnu/libm-2.27.so ..
+--27479--   .. CRC mismatch (computed 7feae033 wanted b29b2508)
+--27479--   Considering /usr/lib/debug/lib/x86_64-linux-gnu/libm-2.27.so ..
+--27479--   .. CRC is valid
+--27479-- Reading syms from /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.25
+--27479--    object doesn't have a symbol table
+--27479-- Reading syms from /usr/lib/x86_64-linux-gnu/libmysqlclient.so.20.3.11
+--27479--    object doesn't have a symbol table
+--27479-- Reading syms from /lib/x86_64-linux-gnu/librt-2.27.so
+--27479--   Considering /lib/x86_64-linux-gnu/librt-2.27.so ..
+--27479--   .. CRC mismatch (computed 16979484 wanted f9e041e3)
+--27479--   Considering /usr/lib/debug/lib/x86_64-linux-gnu/librt-2.27.so ..
+--27479--   .. CRC is valid
+--27479-- Reading syms from /usr/lib/x86_64-linux-gnu/libcurl-gnutls.so.4.5.0
+--27479--    object doesn't have a symbol table
+--27479-- Reading syms from /lib/x86_64-linux-gnu/libgcc_s.so.1
+--27479--    object doesn't have a symbol table
+--27479-- Reading syms from /lib/x86_64-linux-gnu/libc-2.27.so
+--27479--   Considering /lib/x86_64-linux-gnu/libc-2.27.so ..
+--27479--   .. CRC mismatch (computed b1c74187 wanted 042cc048)
+--27479--   Considering /usr/lib/debug/lib/x86_64-linux-gnu/libc-2.27.so ..
+--27479--   .. CRC is valid
+--27479-- Reading syms from /lib/x86_64-linux-gnu/libz.so.1.2.11
+--27479--    object doesn't have a symbol table
+--27479-- Reading syms from /lib/x86_64-linux-gnu/libdl-2.27.so
+--27479--   Considering /lib/x86_64-linux-gnu/libdl-2.27.so ..
+--27479--   .. CRC mismatch (computed bd82fa02 wanted d1fdccc9)
+--27479--   Considering /usr/lib/debug/lib/x86_64-linux-gnu/libdl-2.27.so ..
+--27479--   .. CRC is valid
+--27479-- Reading syms from /usr/lib/x86_64-linux-gnu/libnghttp2.so.14.15.2
+--27479--    object doesn't have a symbol table
+--27479-- Reading syms from /usr/lib/x86_64-linux-gnu/libidn2.so.0.3.3
+--27479--    object doesn't have a symbol table
+--27479-- Reading syms from /usr/lib/x86_64-linux-gnu/librtmp.so.1
+--27479--    object doesn't have a symbol table
+--27479-- Reading syms from /usr/lib/x86_64-linux-gnu/libpsl.so.5.2.0
+--27479--    object doesn't have a symbol table
+--27479-- Reading syms from /usr/lib/x86_64-linux-gnu/libnettle.so.6.4
+--27479--    object doesn't have a symbol table
+--27479-- Reading syms from /usr/lib/x86_64-linux-gnu/libgnutls.so.30.14.10
+--27479--    object doesn't have a symbol table
+--27479-- Reading syms from /usr/lib/x86_64-linux-gnu/libgssapi_krb5.so.2.2
+--27479--    object doesn't have a symbol table
+--27479-- Reading syms from /usr/lib/x86_64-linux-gnu/libldap_r-2.4.so.2.10.8
+--27479--    object doesn't have a symbol table
+--27479-- Reading syms from /usr/lib/x86_64-linux-gnu/liblber-2.4.so.2.10.8
+--27479--    object doesn't have a symbol table
+--27479-- Reading syms from /usr/lib/x86_64-linux-gnu/libunistring.so.2.1.0
+--27479--    object doesn't have a symbol table
+--27479-- Reading syms from /usr/lib/x86_64-linux-gnu/libhogweed.so.4.4
+--27479--    object doesn't have a symbol table
+--27479-- Reading syms from /usr/lib/x86_64-linux-gnu/libp11-kit.so.0.3.0
+--27479--    object doesn't have a symbol table
+--27479-- Reading syms from /usr/lib/x86_64-linux-gnu/libtasn1.so.6.5.5
+--27479--    object doesn't have a symbol table
+--27479-- Reading syms from /usr/lib/x86_64-linux-gnu/libkrb5.so.3.3
+--27479--    object doesn't have a symbol table
+--27479-- Reading syms from /usr/lib/x86_64-linux-gnu/libk5crypto.so.3.1
+--27479--    object doesn't have a symbol table
+--27479-- Reading syms from /lib/x86_64-linux-gnu/libcom_err.so.2.1
+--27479--    object doesn't have a symbol table
+--27479-- Reading syms from /usr/lib/x86_64-linux-gnu/libkrb5support.so.0.1
+--27479--    object doesn't have a symbol table
+--27479-- Reading syms from /lib/x86_64-linux-gnu/libresolv-2.27.so
+--27479--   Considering /lib/x86_64-linux-gnu/libresolv-2.27.so ..
+--27479--   .. CRC mismatch (computed 4f654d8d wanted bb34a537)
+--27479--   Considering /usr/lib/debug/lib/x86_64-linux-gnu/libresolv-2.27.so ..
+--27479--   .. CRC is valid
+--27479-- Reading syms from /usr/lib/x86_64-linux-gnu/libsasl2.so.2.0.25
+--27479--    object doesn't have a symbol table
+--27479-- Reading syms from /usr/lib/x86_64-linux-gnu/libgssapi.so.3.0.0
+--27479--    object doesn't have a symbol table
+--27479-- Reading syms from /usr/lib/x86_64-linux-gnu/libffi.so.6.0.4
+--27479--    object doesn't have a symbol table
+--27479-- Reading syms from /lib/x86_64-linux-gnu/libkeyutils.so.1.5
+--27479--    object doesn't have a symbol table
+--27479-- Reading syms from /usr/lib/x86_64-linux-gnu/libheimntlm.so.0.1.0
+--27479--    object doesn't have a symbol table
+--27479-- Reading syms from /usr/lib/x86_64-linux-gnu/libkrb5.so.26.0.0
+--27479--    object doesn't have a symbol table
+--27479-- Reading syms from /usr/lib/x86_64-linux-gnu/libasn1.so.8.0.0
+--27479--    object doesn't have a symbol table
+--27479-- Reading syms from /usr/lib/x86_64-linux-gnu/libhcrypto.so.4.1.0
+--27479--    object doesn't have a symbol table
+--27479-- Reading syms from /usr/lib/x86_64-linux-gnu/libroken.so.18.1.0
+--27479--    object doesn't have a symbol table
+--27479-- Reading syms from /usr/lib/x86_64-linux-gnu/libwind.so.0.0.0
+--27479--    object doesn't have a symbol table
+--27479-- Reading syms from /usr/lib/x86_64-linux-gnu/libheimbase.so.1.0.0
+--27479--    object doesn't have a symbol table
+--27479-- Reading syms from /usr/lib/x86_64-linux-gnu/libhx509.so.5.0.0
+--27479--    object doesn't have a symbol table
+--27479-- Reading syms from /usr/lib/x86_64-linux-gnu/libsqlite3.so.0.8.6
+--27479--    object doesn't have a symbol table
+--27479-- Reading syms from /lib/x86_64-linux-gnu/libcrypt-2.27.so
+--27479--   Considering /lib/x86_64-linux-gnu/libcrypt-2.27.so ..
+--27479--   .. CRC mismatch (computed 8955bf71 wanted 17b36cbd)
+--27479--   Considering /usr/lib/debug/lib/x86_64-linux-gnu/libcrypt-2.27.so ..
+--27479--   .. CRC is valid
+--27479-- REDIR: 0x6750c70 (libc.so.6:memmove) redirected to 0x4a2a6e0 (_vgnU_ifunc_wrapper)
+--27479-- REDIR: 0x674fd40 (libc.so.6:strncpy) redirected to 0x4a2a6e0 (_vgnU_ifunc_wrapper)
+--27479-- REDIR: 0x6750f50 (libc.so.6:strcasecmp) redirected to 0x4a2a6e0 (_vgnU_ifunc_wrapper)
+--27479-- REDIR: 0x674f790 (libc.so.6:strcat) redirected to 0x4a2a6e0 (_vgnU_ifunc_wrapper)
+--27479-- REDIR: 0x674fd70 (libc.so.6:rindex) redirected to 0x4a2a6e0 (_vgnU_ifunc_wrapper)
+--27479-- REDIR: 0x67527c0 (libc.so.6:rawmemchr) redirected to 0x4a2a6e0 (_vgnU_ifunc_wrapper)
+--27479-- REDIR: 0x6750de0 (libc.so.6:mempcpy) redirected to 0x4a2a6e0 (_vgnU_ifunc_wrapper)
+--27479-- REDIR: 0x6750c10 (libc.so.6:bcmp) redirected to 0x4a2a6e0 (_vgnU_ifunc_wrapper)
+--27479-- REDIR: 0x674fd00 (libc.so.6:strncmp) redirected to 0x4a2a6e0 (_vgnU_ifunc_wrapper)
+--27479-- REDIR: 0x674f800 (libc.so.6:strcmp) redirected to 0x4a2a6e0 (_vgnU_ifunc_wrapper)
+--27479-- REDIR: 0x6750d40 (libc.so.6:memset) redirected to 0x4a2a6e0 (_vgnU_ifunc_wrapper)
+--27479-- REDIR: 0x676e0f0 (libc.so.6:wcschr) redirected to 0x4a2a6e0 (_vgnU_ifunc_wrapper)
+--27479-- REDIR: 0x674fca0 (libc.so.6:strnlen) redirected to 0x4a2a6e0 (_vgnU_ifunc_wrapper)
+--27479-- REDIR: 0x674f870 (libc.so.6:strcspn) redirected to 0x4a2a6e0 (_vgnU_ifunc_wrapper)
+--27479-- REDIR: 0x6750fa0 (libc.so.6:strncasecmp) redirected to 0x4a2a6e0 (_vgnU_ifunc_wrapper)
+--27479-- REDIR: 0x674f840 (libc.so.6:strcpy) redirected to 0x4a2a6e0 (_vgnU_ifunc_wrapper)
+--27479-- REDIR: 0x67510e0 (libc.so.6:memcpy@@GLIBC_2.14) redirected to 0x4a2a6e0 (_vgnU_ifunc_wrapper)
+--27479-- REDIR: 0x674fda0 (libc.so.6:strpbrk) redirected to 0x4a2a6e0 (_vgnU_ifunc_wrapper)
+--27479-- REDIR: 0x674f7c0 (libc.so.6:index) redirected to 0x4a2a6e0 (_vgnU_ifunc_wrapper)
+--27479-- REDIR: 0x674fc70 (libc.so.6:strlen) redirected to 0x4a2a6e0 (_vgnU_ifunc_wrapper)
+--27479-- REDIR: 0x675a6c0 (libc.so.6:memrchr) redirected to 0x4a2a6e0 (_vgnU_ifunc_wrapper)
+--27479-- REDIR: 0x6750ff0 (libc.so.6:strcasecmp_l) redirected to 0x4a2a6e0 (_vgnU_ifunc_wrapper)
+--27479-- REDIR: 0x6750be0 (libc.so.6:memchr) redirected to 0x4a2a6e0 (_vgnU_ifunc_wrapper)
+--27479-- REDIR: 0x676eeb0 (libc.so.6:wcslen) redirected to 0x4a2a6e0 (_vgnU_ifunc_wrapper)
+--27479-- REDIR: 0x6750050 (libc.so.6:strspn) redirected to 0x4a2a6e0 (_vgnU_ifunc_wrapper)
+--27479-- REDIR: 0x6750f20 (libc.so.6:stpncpy) redirected to 0x4a2a6e0 (_vgnU_ifunc_wrapper)
+--27479-- REDIR: 0x6750ef0 (libc.so.6:stpcpy) redirected to 0x4a2a6e0 (_vgnU_ifunc_wrapper)
+--27479-- REDIR: 0x67527f0 (libc.so.6:strchrnul) redirected to 0x4a2a6e0 (_vgnU_ifunc_wrapper)
+--27479-- REDIR: 0x6751040 (libc.so.6:strncasecmp_l) redirected to 0x4a2a6e0 (_vgnU_ifunc_wrapper)
+--27479-- REDIR: 0x67e38a0 (libc.so.6:__memcpy_chk) redirected to 0x4a2a6e0 (_vgnU_ifunc_wrapper)
+--27479-- REDIR: 0x6750b20 (libc.so.6:strstr) redirected to 0x4a2a6e0 (_vgnU_ifunc_wrapper)
+--27479-- REDIR: 0x67e3970 (libc.so.6:__memmove_chk) redirected to 0x4a2a6e0 (_vgnU_ifunc_wrapper)
+==27479== WARNING: new redirection conflicts with existing -- ignoring it
+--27479--     old: 0x06840ac0 (__memcpy_chk_avx_una) R-> (2030.0) 0x04c375e0 __memcpy_chk
+--27479--     new: 0x06840ac0 (__memcpy_chk_avx_una) R-> (2024.0) 0x04c36fa0 __memmove_chk
+--27479-- REDIR: 0x674fcd0 (libc.so.6:strncat) redirected to 0x4a2a6e0 (_vgnU_ifunc_wrapper)
+==27479== WARNING: new redirection conflicts with existing -- ignoring it
+--27479--     old: 0x06840ac0 (__memcpy_chk_avx_una) R-> (2030.0) 0x04c375e0 __memcpy_chk
+--27479--     new: 0x06840ac0 (__memcpy_chk_avx_una) R-> (2024.0) 0x04c36fa0 __memmove_chk
+==27479== WARNING: new redirection conflicts with existing -- ignoring it
+--27479--     old: 0x06840ac0 (__memcpy_chk_avx_una) R-> (2030.0) 0x04c375e0 __memcpy_chk
+--27479--     new: 0x06840ac0 (__memcpy_chk_avx_una) R-> (2024.0) 0x04c36fa0 __memmove_chk
+==27479== WARNING: new redirection conflicts with existing -- ignoring it
+--27479--     old: 0x06840ac0 (__memcpy_chk_avx_una) R-> (2030.0) 0x04c375e0 __memcpy_chk
+--27479--     new: 0x06840ac0 (__memcpy_chk_avx_una) R-> (2024.0) 0x04c36fa0 __memmove_chk
+--27479-- REDIR: 0x68403c0 (libc.so.6:__strrchr_avx2) redirected to 0x4c32730 (rindex)
+--27479-- REDIR: 0x6840590 (libc.so.6:__strlen_avx2) redirected to 0x4c32cf0 (strlen)
+--27479-- REDIR: 0x6749070 (libc.so.6:malloc) redirected to 0x4c2faa0 (malloc)
+--27479-- REDIR: 0x6840ad0 (libc.so.6:__memcpy_avx_unaligned_erms) redirected to 0x4c366e0 (memmove)
+--27479-- REDIR: 0x681bd60 (libc.so.6:__strcmp_ssse3) redirected to 0x4c33da0 (strcmp)
+--27479-- REDIR: 0x674c030 (libc.so.6:calloc) redirected to 0x4c31a70 (calloc)
+--27479-- REDIR: 0x683ffa0 (libc.so.6:__strchr_avx2) redirected to 0x4c32950 (index)
+--27479-- REDIR: 0x6840ac0 (libc.so.6:__memcpy_chk_avx_unaligned_erms) redirected to 0x4c375e0 (__memcpy_chk)
+--27479-- REDIR: 0x6749950 (libc.so.6:free) redirected to 0x4c30cd0 (free)
+--27479-- REDIR: 0x683cba0 (libc.so.6:__memcmp_avx2_movbe) redirected to 0x4c35e00 (bcmp)
+--27479-- REDIR: 0x6840f50 (libc.so.6:__memset_avx2_unaligned_erms) redirected to 0x4c365d0 (memset)
+--27479-- REDIR: 0x6840ab0 (libc.so.6:__mempcpy_avx_unaligned_erms) redirected to 0x4c37130 (mempcpy)
+--27479-- REDIR: 0x68401d0 (libc.so.6:__strchrnul_avx2) redirected to 0x4c37020 (strchrnul)
+--27479-- REDIR: 0x6750590 (libc.so.6:__GI_strstr) redirected to 0x4c37760 (__strstr_sse2)
+--27479-- REDIR: 0x683c420 (libc.so.6:__memchr_avx2) redirected to 0x4c33f80 (memchr)
+--27479-- REDIR: 0x682d950 (libc.so.6:__strcpy_ssse3) redirected to 0x4c32dd0 (strcpy)
+--27479-- REDIR: 0x683c6f0 (libc.so.6:__rawmemchr_avx2) redirected to 0x4c37050 (rawmemchr)
+--27479-- REDIR: 0x570d190 (libstdc++.so.6:operator new(unsigned long)) redirected to 0x4c30110 (operator new(unsigned long))
+--27479-- REDIR: 0x6837510 (libc.so.6:__strncmp_sse42) redirected to 0x4c33570 (__strncmp_sse42)
+--27479-- REDIR: 0x6831c80 (libc.so.6:__stpcpy_ssse3) redirected to 0x4c35f60 (stpcpy)
+--27479-- Reading syms from /lib/x86_64-linux-gnu/libnss_files-2.27.so
+--27479--   Considering /lib/x86_64-linux-gnu/libnss_files-2.27.so ..
+--27479--   .. CRC mismatch (computed 5cdb0f74 wanted 1b4e69e7)
+--27479--   Considering /usr/lib/debug/lib/x86_64-linux-gnu/libnss_files-2.27.so ..
+--27479--   .. CRC is valid
+--27479-- REDIR: 0x683c1b0 (libc.so.6:__strpbrk_sse42) redirected to 0x4c37860 (strpbrk)
+--27479-- REDIR: 0x683cf80 (libc.so.6:__strcasecmp_avx) redirected to 0x4c335f0 (strcasecmp)
+--27479-- REDIR: 0x683e5f0 (libc.so.6:__strncasecmp_avx) redirected to 0x4c336d0 (strncasecmp)
+--27479-- REDIR: 0x6750eb0 (libc.so.6:bcopy) redirected to 0x4c36f50 (bcopy)
+--27479-- REDIR: 0x682f100 (libc.so.6:__strncpy_ssse3) redirected to 0x4c32fb0 (strncpy)
+--27479-- REDIR: 0x570b2e0 (libstdc++.so.6:operator delete(void*)) redirected to 0x4c311d0 (operator delete(void*))
+--27479-- REDIR: 0x67639e0 (libc.so.6:__strcat_ssse3) redirected to 0x4c32990 (strcat)
+vex amd64->IR: unhandled instruction bytes: 0x62 0xF1 0x75 0x48 0xEF 0xC9 0xC5 0xF9 0x2E 0xC1
+vex amd64->IR:   REX=0 REX.W=0 REX.R=0 REX.X=0 REX.B=0
+vex amd64->IR:   VEX=0 VEX.L=0 VEX.nVVVV=0x0 ESC=NONE
+vex amd64->IR:   PFX.66=0 PFX.F2=0 PFX.F3=0
+==27479== valgrind: Unrecognised instruction at address 0x121f6b.
+==27479==    at 0x121F6B: coinbase_create(YAAMP_COIND*, YAAMP_JOB_TEMPLATE*, _json_value*) (coinbase.cpp:227)
+==27479==    by 0x116931: coind_create_template(YAAMP_COIND*) (coind_template.cpp:511)
+==27479==    by 0x116B8C: coind_create_job(YAAMP_COIND*, bool) (coind_template.cpp:535)
+==27479==    by 0x110C50: db_update_coinds(YAAMP_DB*) (db.cpp:352)
+==27479==    by 0x10E4CE: main (stratum.cpp:314)
+==27479== Your program just tried to execute an instruction that Valgrind
+==27479== did not recognise.  There are two possible reasons for this.
+==27479== 1. Your program has a bug and erroneously jumped to a non-code
+==27479==    location.  If you are running Memcheck and you just saw a
+==27479==    warning about a bad jump, it's probably your program's fault.
+==27479== 2. The instruction is legitimate but Valgrind doesn't handle it,
+==27479==    i.e. it's Valgrind's fault.  If you think this is the case or
+==27479==    you are not sure, please let us know and we'll try to fix it.
+==27479== Either way, Valgrind will now raise a SIGILL signal which will
+==27479== probably kill your program.
+==27479== 
+==27479== Process terminating with default action of signal 4 (SIGILL)
+==27479==  Illegal opcode at address 0x121F6B
+==27479==    at 0x121F6B: coinbase_create(YAAMP_COIND*, YAAMP_JOB_TEMPLATE*, _json_value*) (coinbase.cpp:227)
+==27479==    by 0x116931: coind_create_template(YAAMP_COIND*) (coind_template.cpp:511)
+==27479==    by 0x116B8C: coind_create_job(YAAMP_COIND*, bool) (coind_template.cpp:535)
+==27479==    by 0x110C50: db_update_coinds(YAAMP_DB*) (db.cpp:352)
+==27479==    by 0x10E4CE: main (stratum.cpp:314)
+--27479-- Discarding syms at 0xbd4d350-0xbd53d7f in /lib/x86_64-linux-gnu/libnss_files-2.27.so due to munmap()
+==27479== 
+==27479== HEAP SUMMARY:
+==27479==     in use at exit: 289,535 bytes in 805 blocks
+==27479==   total heap usage: 1,658 allocs, 853 frees, 627,451 bytes allocated
+==27479== 
+==27479== Searching for pointers to 805 not-freed blocks
+==27479== Checked 1,415,200 bytes
+==27479== 
+==27479== 24 bytes in 1 blocks are still reachable in loss record 1 of 83
+==27479==    at 0x4C3017F: operator new(unsigned long) (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==27479==    by 0x11A5B9: CommonList::AddTail(void*) (list.cpp:72)
+==27479==    by 0x110C27: db_update_coinds(YAAMP_DB*) (db.cpp:348)
+==27479==    by 0x10E4CE: main (stratum.cpp:314)
+==27479== 
+==27479== 32 bytes in 1 blocks are still reachable in loss record 2 of 83
+==27479==    at 0x4C31B25: calloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==27479==    by 0x79C5ADA: ??? (in /usr/lib/x86_64-linux-gnu/libgnutls.so.30.14.10)
+==27479==    by 0x7A54871: ??? (in /usr/lib/x86_64-linux-gnu/libgnutls.so.30.14.10)
+==27479==    by 0x79B0E58: ??? (in /usr/lib/x86_64-linux-gnu/libgnutls.so.30.14.10)
+==27479==    by 0x798F580: ??? (in /usr/lib/x86_64-linux-gnu/libgnutls.so.30.14.10)
+==27479==    by 0x4010732: call_init (dl-init.c:72)
+==27479==    by 0x4010732: _dl_init (dl-init.c:119)
+==27479==    by 0x40010C9: ??? (in /lib/x86_64-linux-gnu/ld-2.27.so)
+==27479==    by 0x1: ???
+==27479==    by 0x1FFF00078E: ???
+==27479==    by 0x1FFF000798: ???
+==27479== 
+==27479== 32 bytes in 1 blocks are still reachable in loss record 3 of 83
+==27479==    at 0x4C31B25: calloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==27479==    by 0x79C5ADA: ??? (in /usr/lib/x86_64-linux-gnu/libgnutls.so.30.14.10)
+==27479==    by 0x7A54891: ??? (in /usr/lib/x86_64-linux-gnu/libgnutls.so.30.14.10)
+==27479==    by 0x79B0E58: ??? (in /usr/lib/x86_64-linux-gnu/libgnutls.so.30.14.10)
+==27479==    by 0x798F580: ??? (in /usr/lib/x86_64-linux-gnu/libgnutls.so.30.14.10)
+==27479==    by 0x4010732: call_init (dl-init.c:72)
+==27479==    by 0x4010732: _dl_init (dl-init.c:119)
+==27479==    by 0x40010C9: ??? (in /lib/x86_64-linux-gnu/ld-2.27.so)
+==27479==    by 0x1: ???
+==27479==    by 0x1FFF00078E: ???
+==27479==    by 0x1FFF000798: ???
+==27479== 
+==27479== 32 bytes in 1 blocks are still reachable in loss record 4 of 83
+==27479==    at 0x4C31B25: calloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==27479==    by 0x79C5ADA: ??? (in /usr/lib/x86_64-linux-gnu/libgnutls.so.30.14.10)
+==27479==    by 0x7A548B1: ??? (in /usr/lib/x86_64-linux-gnu/libgnutls.so.30.14.10)
+==27479==    by 0x79B0E58: ??? (in /usr/lib/x86_64-linux-gnu/libgnutls.so.30.14.10)
+==27479==    by 0x798F580: ??? (in /usr/lib/x86_64-linux-gnu/libgnutls.so.30.14.10)
+==27479==    by 0x4010732: call_init (dl-init.c:72)
+==27479==    by 0x4010732: _dl_init (dl-init.c:119)
+==27479==    by 0x40010C9: ??? (in /lib/x86_64-linux-gnu/ld-2.27.so)
+==27479==    by 0x1: ???
+==27479==    by 0x1FFF00078E: ???
+==27479==    by 0x1FFF000798: ???
+==27479== 
+==27479== 32 bytes in 1 blocks are still reachable in loss record 5 of 83
+==27479==    at 0x4C31B25: calloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==27479==    by 0x79C5ADA: ??? (in /usr/lib/x86_64-linux-gnu/libgnutls.so.30.14.10)
+==27479==    by 0x7A548D1: ??? (in /usr/lib/x86_64-linux-gnu/libgnutls.so.30.14.10)
+==27479==    by 0x79B0E58: ??? (in /usr/lib/x86_64-linux-gnu/libgnutls.so.30.14.10)
+==27479==    by 0x798F580: ??? (in /usr/lib/x86_64-linux-gnu/libgnutls.so.30.14.10)
+==27479==    by 0x4010732: call_init (dl-init.c:72)
+==27479==    by 0x4010732: _dl_init (dl-init.c:119)
+==27479==    by 0x40010C9: ??? (in /lib/x86_64-linux-gnu/ld-2.27.so)
+==27479==    by 0x1: ???
+==27479==    by 0x1FFF00078E: ???
+==27479==    by 0x1FFF000798: ???
+==27479== 
+==27479== 32 bytes in 1 blocks are still reachable in loss record 6 of 83
+==27479==    at 0x4C31B25: calloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==27479==    by 0x79C5ADA: ??? (in /usr/lib/x86_64-linux-gnu/libgnutls.so.30.14.10)
+==27479==    by 0x7A548F1: ??? (in /usr/lib/x86_64-linux-gnu/libgnutls.so.30.14.10)
+==27479==    by 0x79B0E58: ??? (in /usr/lib/x86_64-linux-gnu/libgnutls.so.30.14.10)
+==27479==    by 0x798F580: ??? (in /usr/lib/x86_64-linux-gnu/libgnutls.so.30.14.10)
+==27479==    by 0x4010732: call_init (dl-init.c:72)
+==27479==    by 0x4010732: _dl_init (dl-init.c:119)
+==27479==    by 0x40010C9: ??? (in /lib/x86_64-linux-gnu/ld-2.27.so)
+==27479==    by 0x1: ???
+==27479==    by 0x1FFF00078E: ???
+==27479==    by 0x1FFF000798: ???
+==27479== 
+==27479== 32 bytes in 1 blocks are still reachable in loss record 7 of 83
+==27479==    at 0x4C31B25: calloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==27479==    by 0x79C5ADA: ??? (in /usr/lib/x86_64-linux-gnu/libgnutls.so.30.14.10)
+==27479==    by 0x7A54911: ??? (in /usr/lib/x86_64-linux-gnu/libgnutls.so.30.14.10)
+==27479==    by 0x79B0E58: ??? (in /usr/lib/x86_64-linux-gnu/libgnutls.so.30.14.10)
+==27479==    by 0x798F580: ??? (in /usr/lib/x86_64-linux-gnu/libgnutls.so.30.14.10)
+==27479==    by 0x4010732: call_init (dl-init.c:72)
+==27479==    by 0x4010732: _dl_init (dl-init.c:119)
+==27479==    by 0x40010C9: ??? (in /lib/x86_64-linux-gnu/ld-2.27.so)
+==27479==    by 0x1: ???
+==27479==    by 0x1FFF00078E: ???
+==27479==    by 0x1FFF000798: ???
+==27479== 
+==27479== 32 bytes in 1 blocks are still reachable in loss record 8 of 83
+==27479==    at 0x4C31B25: calloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==27479==    by 0x79C5ADA: ??? (in /usr/lib/x86_64-linux-gnu/libgnutls.so.30.14.10)
+==27479==    by 0x7A54931: ??? (in /usr/lib/x86_64-linux-gnu/libgnutls.so.30.14.10)
+==27479==    by 0x79B0E58: ??? (in /usr/lib/x86_64-linux-gnu/libgnutls.so.30.14.10)
+==27479==    by 0x798F580: ??? (in /usr/lib/x86_64-linux-gnu/libgnutls.so.30.14.10)
+==27479==    by 0x4010732: call_init (dl-init.c:72)
+==27479==    by 0x4010732: _dl_init (dl-init.c:119)
+==27479==    by 0x40010C9: ??? (in /lib/x86_64-linux-gnu/ld-2.27.so)
+==27479==    by 0x1: ???
+==27479==    by 0x1FFF00078E: ???
+==27479==    by 0x1FFF000798: ???
+==27479== 
+==27479== 32 bytes in 1 blocks are still reachable in loss record 9 of 83
+==27479==    at 0x4C31B25: calloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==27479==    by 0x79C5ADA: ??? (in /usr/lib/x86_64-linux-gnu/libgnutls.so.30.14.10)
+==27479==    by 0x7A54951: ??? (in /usr/lib/x86_64-linux-gnu/libgnutls.so.30.14.10)
+==27479==    by 0x79B0E58: ??? (in /usr/lib/x86_64-linux-gnu/libgnutls.so.30.14.10)
+==27479==    by 0x798F580: ??? (in /usr/lib/x86_64-linux-gnu/libgnutls.so.30.14.10)
+==27479==    by 0x4010732: call_init (dl-init.c:72)
+==27479==    by 0x4010732: _dl_init (dl-init.c:119)
+==27479==    by 0x40010C9: ??? (in /lib/x86_64-linux-gnu/ld-2.27.so)
+==27479==    by 0x1: ???
+==27479==    by 0x1FFF00078E: ???
+==27479==    by 0x1FFF000798: ???
+==27479== 
+==27479== 32 bytes in 1 blocks are still reachable in loss record 10 of 83
+==27479==    at 0x4C31B25: calloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==27479==    by 0x79C5ADA: ??? (in /usr/lib/x86_64-linux-gnu/libgnutls.so.30.14.10)
+==27479==    by 0x7A54971: ??? (in /usr/lib/x86_64-linux-gnu/libgnutls.so.30.14.10)
+==27479==    by 0x79B0E58: ??? (in /usr/lib/x86_64-linux-gnu/libgnutls.so.30.14.10)
+==27479==    by 0x798F580: ??? (in /usr/lib/x86_64-linux-gnu/libgnutls.so.30.14.10)
+==27479==    by 0x4010732: call_init (dl-init.c:72)
+==27479==    by 0x4010732: _dl_init (dl-init.c:119)
+==27479==    by 0x40010C9: ??? (in /lib/x86_64-linux-gnu/ld-2.27.so)
+==27479==    by 0x1: ???
+==27479==    by 0x1FFF00078E: ???
+==27479==    by 0x1FFF000798: ???
+==27479== 
+==27479== 32 bytes in 1 blocks are still reachable in loss record 11 of 83
+==27479==    at 0x4C31B25: calloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==27479==    by 0x79C5ADA: ??? (in /usr/lib/x86_64-linux-gnu/libgnutls.so.30.14.10)
+==27479==    by 0x7A54991: ??? (in /usr/lib/x86_64-linux-gnu/libgnutls.so.30.14.10)
+==27479==    by 0x79B0E58: ??? (in /usr/lib/x86_64-linux-gnu/libgnutls.so.30.14.10)
+==27479==    by 0x798F580: ??? (in /usr/lib/x86_64-linux-gnu/libgnutls.so.30.14.10)
+==27479==    by 0x4010732: call_init (dl-init.c:72)
+==27479==    by 0x4010732: _dl_init (dl-init.c:119)
+==27479==    by 0x40010C9: ??? (in /lib/x86_64-linux-gnu/ld-2.27.so)
+==27479==    by 0x1: ???
+==27479==    by 0x1FFF00078E: ???
+==27479==    by 0x1FFF000798: ???
+==27479== 
+==27479== 32 bytes in 1 blocks are still reachable in loss record 12 of 83
+==27479==    at 0x4C31B25: calloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==27479==    by 0x79C5ADA: ??? (in /usr/lib/x86_64-linux-gnu/libgnutls.so.30.14.10)
+==27479==    by 0x7A549B1: ??? (in /usr/lib/x86_64-linux-gnu/libgnutls.so.30.14.10)
+==27479==    by 0x79B0E58: ??? (in /usr/lib/x86_64-linux-gnu/libgnutls.so.30.14.10)
+==27479==    by 0x798F580: ??? (in /usr/lib/x86_64-linux-gnu/libgnutls.so.30.14.10)
+==27479==    by 0x4010732: call_init (dl-init.c:72)
+==27479==    by 0x4010732: _dl_init (dl-init.c:119)
+==27479==    by 0x40010C9: ??? (in /lib/x86_64-linux-gnu/ld-2.27.so)
+==27479==    by 0x1: ???
+==27479==    by 0x1FFF00078E: ???
+==27479==    by 0x1FFF000798: ???
+==27479== 
+==27479== 32 bytes in 1 blocks are still reachable in loss record 13 of 83
+==27479==    at 0x4C31B25: calloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==27479==    by 0x79C5ADA: ??? (in /usr/lib/x86_64-linux-gnu/libgnutls.so.30.14.10)
+==27479==    by 0x7A54A52: ??? (in /usr/lib/x86_64-linux-gnu/libgnutls.so.30.14.10)
+==27479==    by 0x79B0E58: ??? (in /usr/lib/x86_64-linux-gnu/libgnutls.so.30.14.10)
+==27479==    by 0x798F580: ??? (in /usr/lib/x86_64-linux-gnu/libgnutls.so.30.14.10)
+==27479==    by 0x4010732: call_init (dl-init.c:72)
+==27479==    by 0x4010732: _dl_init (dl-init.c:119)
+==27479==    by 0x40010C9: ??? (in /lib/x86_64-linux-gnu/ld-2.27.so)
+==27479==    by 0x1: ???
+==27479==    by 0x1FFF00078E: ???
+==27479==    by 0x1FFF000798: ???
+==27479== 
+==27479== 32 bytes in 1 blocks are still reachable in loss record 14 of 83
+==27479==    at 0x4C31B25: calloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==27479==    by 0x79C5ADA: ??? (in /usr/lib/x86_64-linux-gnu/libgnutls.so.30.14.10)
+==27479==    by 0x7A54A72: ??? (in /usr/lib/x86_64-linux-gnu/libgnutls.so.30.14.10)
+==27479==    by 0x79B0E58: ??? (in /usr/lib/x86_64-linux-gnu/libgnutls.so.30.14.10)
+==27479==    by 0x798F580: ??? (in /usr/lib/x86_64-linux-gnu/libgnutls.so.30.14.10)
+==27479==    by 0x4010732: call_init (dl-init.c:72)
+==27479==    by 0x4010732: _dl_init (dl-init.c:119)
+==27479==    by 0x40010C9: ??? (in /lib/x86_64-linux-gnu/ld-2.27.so)
+==27479==    by 0x1: ???
+==27479==    by 0x1FFF00078E: ???
+==27479==    by 0x1FFF000798: ???
+==27479== 
+==27479== 32 bytes in 1 blocks are still reachable in loss record 15 of 83
+==27479==    at 0x4C31B25: calloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==27479==    by 0x79C5ADA: ??? (in /usr/lib/x86_64-linux-gnu/libgnutls.so.30.14.10)
+==27479==    by 0x7A54A92: ??? (in /usr/lib/x86_64-linux-gnu/libgnutls.so.30.14.10)
+==27479==    by 0x79B0E58: ??? (in /usr/lib/x86_64-linux-gnu/libgnutls.so.30.14.10)
+==27479==    by 0x798F580: ??? (in /usr/lib/x86_64-linux-gnu/libgnutls.so.30.14.10)
+==27479==    by 0x4010732: call_init (dl-init.c:72)
+==27479==    by 0x4010732: _dl_init (dl-init.c:119)
+==27479==    by 0x40010C9: ??? (in /lib/x86_64-linux-gnu/ld-2.27.so)
+==27479==    by 0x1: ???
+==27479==    by 0x1FFF00078E: ???
+==27479==    by 0x1FFF000798: ???
+==27479== 
+==27479== 32 bytes in 1 blocks are still reachable in loss record 16 of 83
+==27479==    at 0x4C31B25: calloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==27479==    by 0x79C5ADA: ??? (in /usr/lib/x86_64-linux-gnu/libgnutls.so.30.14.10)
+==27479==    by 0x7A54AB2: ??? (in /usr/lib/x86_64-linux-gnu/libgnutls.so.30.14.10)
+==27479==    by 0x79B0E58: ??? (in /usr/lib/x86_64-linux-gnu/libgnutls.so.30.14.10)
+==27479==    by 0x798F580: ??? (in /usr/lib/x86_64-linux-gnu/libgnutls.so.30.14.10)
+==27479==    by 0x4010732: call_init (dl-init.c:72)
+==27479==    by 0x4010732: _dl_init (dl-init.c:119)
+==27479==    by 0x40010C9: ??? (in /lib/x86_64-linux-gnu/ld-2.27.so)
+==27479==    by 0x1: ???
+==27479==    by 0x1FFF00078E: ???
+==27479==    by 0x1FFF000798: ???
+==27479== 
+==27479== 32 bytes in 1 blocks are still reachable in loss record 17 of 83
+==27479==    at 0x4C3017F: operator new(unsigned long) (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==27479==    by 0x114627: __gnu_cxx::new_allocator<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > >::allocate(unsigned long, void const*) (new_allocator.h:104)
+==27479==    by 0x114310: __gnu_cxx::__alloc_traits<std::allocator<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > > >::allocate(std::allocator<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > >&, unsigned long) (alloc_traits.h:182)
+==27479==    by 0x113FDF: std::_Vector_base<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::allocator<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > > >::_M_allocate(unsigned long) (stl_vector.h:170)
+==27479==    by 0x113840: std::vector<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::allocator<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > > >::_M_insert_aux(__gnu_cxx::__normal_iterator<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >*, std::vector<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::allocator<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > > > >, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) (vector.tcc:353)
+==27479==    by 0x1133A3: std::vector<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::allocator<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > > >::push_back(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) (stl_vector.h:925)
+==27479==    by 0x1160CE: coind_create_template(YAAMP_COIND*) (coind_template.cpp:397)
+==27479==    by 0x116B8C: coind_create_job(YAAMP_COIND*, bool) (coind_template.cpp:535)
+==27479==    by 0x110C50: db_update_coinds(YAAMP_DB*) (db.cpp:352)
+==27479==    by 0x10E4CE: main (stratum.cpp:314)
+==27479== 
+==27479== 32 bytes in 1 blocks are still reachable in loss record 18 of 83
+==27479==    at 0x4C3017F: operator new(unsigned long) (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==27479==    by 0x114627: __gnu_cxx::new_allocator<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > >::allocate(unsigned long, void const*) (new_allocator.h:104)
+==27479==    by 0x114310: __gnu_cxx::__alloc_traits<std::allocator<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > > >::allocate(std::allocator<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > >&, unsigned long) (alloc_traits.h:182)
+==27479==    by 0x113FDF: std::_Vector_base<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::allocator<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > > >::_M_allocate(unsigned long) (stl_vector.h:170)
+==27479==    by 0x113840: std::vector<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::allocator<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > > >::_M_insert_aux(__gnu_cxx::__normal_iterator<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >*, std::vector<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::allocator<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > > > >, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) (vector.tcc:353)
+==27479==    by 0x1133A3: std::vector<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::allocator<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > > >::push_back(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) (stl_vector.h:925)
+==27479==    by 0x116131: coind_create_template(YAAMP_COIND*) (coind_template.cpp:398)
+==27479==    by 0x116B8C: coind_create_job(YAAMP_COIND*, bool) (coind_template.cpp:535)
+==27479==    by 0x110C50: db_update_coinds(YAAMP_DB*) (db.cpp:352)
+==27479==    by 0x10E4CE: main (stratum.cpp:314)
+==27479== 
+==27479== 32 bytes in 4 blocks are still reachable in loss record 19 of 83
+==27479==    at 0x4C2FB0F: malloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==27479==    by 0x12C721: default_alloc(unsigned long, int, void*) (json.cpp:81)
+==27479==    by 0x12C7E0: json_alloc(json_state*, unsigned long, int) (json.cpp:100)
+==27479==    by 0x12C894: new_value(json_state*, _json_value**, _json_value**, _json_value**, json_type) (json.cpp:122)
+==27479==    by 0x12DA99: json_parse_ex (json.cpp:554)
+==27479==    by 0x12E923: json_parse (json.cpp:921)
+==27479==    by 0x11B6A5: rpc_call(YAAMP_RPC*, char const*, char const*) (rpc.cpp:270)
+==27479==    by 0x115687: coind_create_template(YAAMP_COIND*) (coind_template.cpp:240)
+==27479==    by 0x116B8C: coind_create_job(YAAMP_COIND*, bool) (coind_template.cpp:535)
+==27479==    by 0x110C50: db_update_coinds(YAAMP_DB*) (db.cpp:352)
+==27479==    by 0x10E4CE: main (stratum.cpp:314)
+==27479== 
+==27479== 39 bytes in 1 blocks are possibly lost in loss record 20 of 83
+==27479==    at 0x4C2FB0F: malloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==27479==    by 0x5A68FDF: ??? (in /usr/lib/x86_64-linux-gnu/libmysqlclient.so.20.3.11)
+==27479==    by 0x5A691FD: ??? (in /usr/lib/x86_64-linux-gnu/libmysqlclient.so.20.3.11)
+==27479==    by 0x5A3140E: ??? (in /usr/lib/x86_64-linux-gnu/libmysqlclient.so.20.3.11)
+==27479==    by 0x5A35088: mysql_real_connect (in /usr/lib/x86_64-linux-gnu/libmysqlclient.so.20.3.11)
+==27479==    by 0x10F22D: db_reconnect(YAAMP_DB*) (db.cpp:16)
+==27479==    by 0x10F2B1: db_connect() (db.cpp:30)
+==27479==    by 0x10E43C: main (stratum.cpp:300)
+==27479== 
+==27479== 39 bytes in 1 blocks are possibly lost in loss record 21 of 83
+==27479==    at 0x4C2FB0F: malloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==27479==    by 0x5A68FDF: ??? (in /usr/lib/x86_64-linux-gnu/libmysqlclient.so.20.3.11)
+==27479==    by 0x5A691FD: ??? (in /usr/lib/x86_64-linux-gnu/libmysqlclient.so.20.3.11)
+==27479==    by 0x5A3140E: ??? (in /usr/lib/x86_64-linux-gnu/libmysqlclient.so.20.3.11)
+==27479==    by 0x5A35088: mysql_real_connect (in /usr/lib/x86_64-linux-gnu/libmysqlclient.so.20.3.11)
+==27479==    by 0x10F22D: db_reconnect(YAAMP_DB*) (db.cpp:16)
+==27479==    by 0x10F2B1: db_connect() (db.cpp:30)
+==27479==    by 0x10E484: main (stratum.cpp:309)
+==27479== 
+==27479== 40 bytes in 1 blocks are still reachable in loss record 22 of 83
+==27479==    at 0x4C2FB0F: malloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==27479==    by 0x79B5120: ??? (in /usr/lib/x86_64-linux-gnu/libgnutls.so.30.14.10)
+==27479==    by 0x79B0DB6: ??? (in /usr/lib/x86_64-linux-gnu/libgnutls.so.30.14.10)
+==27479==    by 0x798F580: ??? (in /usr/lib/x86_64-linux-gnu/libgnutls.so.30.14.10)
+==27479==    by 0x4010732: call_init (dl-init.c:72)
+==27479==    by 0x4010732: _dl_init (dl-init.c:119)
+==27479==    by 0x40010C9: ??? (in /lib/x86_64-linux-gnu/ld-2.27.so)
+==27479==    by 0x1: ???
+==27479==    by 0x1FFF00078E: ???
+==27479==    by 0x1FFF000798: ???
+==27479== 
+==27479== 40 bytes in 1 blocks are still reachable in loss record 23 of 83
+==27479==    at 0x4C2FB0F: malloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==27479==    by 0x79B5120: ??? (in /usr/lib/x86_64-linux-gnu/libgnutls.so.30.14.10)
+==27479==    by 0x79B0DCB: ??? (in /usr/lib/x86_64-linux-gnu/libgnutls.so.30.14.10)
+==27479==    by 0x798F580: ??? (in /usr/lib/x86_64-linux-gnu/libgnutls.so.30.14.10)
+==27479==    by 0x4010732: call_init (dl-init.c:72)
+==27479==    by 0x4010732: _dl_init (dl-init.c:119)
+==27479==    by 0x40010C9: ??? (in /lib/x86_64-linux-gnu/ld-2.27.so)
+==27479==    by 0x1: ???
+==27479==    by 0x1FFF00078E: ???
+==27479==    by 0x1FFF000798: ???
+==27479== 
+==27479== 40 bytes in 1 blocks are still reachable in loss record 24 of 83
+==27479==    at 0x4C31B25: calloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==27479==    by 0x12C713: default_alloc(unsigned long, int, void*) (json.cpp:81)
+==27479==    by 0x12C7E0: json_alloc(json_state*, unsigned long, int) (json.cpp:100)
+==27479==    by 0x12C9C0: new_value(json_state*, _json_value**, _json_value**, _json_value**, json_type) (json.cpp:163)
+==27479==    by 0x12DD49: json_parse_ex (json.cpp:601)
+==27479==    by 0x12E923: json_parse (json.cpp:921)
+==27479==    by 0x11B6A5: rpc_call(YAAMP_RPC*, char const*, char const*) (rpc.cpp:270)
+==27479==    by 0x115687: coind_create_template(YAAMP_COIND*) (coind_template.cpp:240)
+==27479==    by 0x116B8C: coind_create_job(YAAMP_COIND*, bool) (coind_template.cpp:535)
+==27479==    by 0x110C50: db_update_coinds(YAAMP_DB*) (db.cpp:352)
+==27479==    by 0x10E4CE: main (stratum.cpp:314)
+==27479== 
+==27479== 40 bytes in 1 blocks are possibly lost in loss record 25 of 83
+==27479==    at 0x4C2FB0F: malloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==27479==    by 0x5A68FDF: ??? (in /usr/lib/x86_64-linux-gnu/libmysqlclient.so.20.3.11)
+==27479==    by 0x5A691FD: ??? (in /usr/lib/x86_64-linux-gnu/libmysqlclient.so.20.3.11)
+==27479==    by 0x5A351A1: mysql_real_connect (in /usr/lib/x86_64-linux-gnu/libmysqlclient.so.20.3.11)
+==27479==    by 0x10F22D: db_reconnect(YAAMP_DB*) (db.cpp:16)
+==27479==    by 0x10F2B1: db_connect() (db.cpp:30)
+==27479==    by 0x10E43C: main (stratum.cpp:300)
+==27479== 
+==27479== 40 bytes in 1 blocks are possibly lost in loss record 26 of 83
+==27479==    at 0x4C2FB0F: malloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==27479==    by 0x5A68FDF: ??? (in /usr/lib/x86_64-linux-gnu/libmysqlclient.so.20.3.11)
+==27479==    by 0x5A691FD: ??? (in /usr/lib/x86_64-linux-gnu/libmysqlclient.so.20.3.11)
+==27479==    by 0x5A351A1: mysql_real_connect (in /usr/lib/x86_64-linux-gnu/libmysqlclient.so.20.3.11)
+==27479==    by 0x10F22D: db_reconnect(YAAMP_DB*) (db.cpp:16)
+==27479==    by 0x10F2B1: db_connect() (db.cpp:30)
+==27479==    by 0x10E484: main (stratum.cpp:309)
+==27479== 
+==27479== 46 bytes in 1 blocks are possibly lost in loss record 27 of 83
+==27479==    at 0x4C2FB0F: malloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==27479==    by 0x5A68FDF: ??? (in /usr/lib/x86_64-linux-gnu/libmysqlclient.so.20.3.11)
+==27479==    by 0x5A691FD: ??? (in /usr/lib/x86_64-linux-gnu/libmysqlclient.so.20.3.11)
+==27479==    by 0x5A31B2C: ??? (in /usr/lib/x86_64-linux-gnu/libmysqlclient.so.20.3.11)
+==27479==    by 0x5A31D6C: ??? (in /usr/lib/x86_64-linux-gnu/libmysqlclient.so.20.3.11)
+==27479==    by 0x5A2DC63: ??? (in /usr/lib/x86_64-linux-gnu/libmysqlclient.so.20.3.11)
+==27479==    by 0x5A32183: ??? (in /usr/lib/x86_64-linux-gnu/libmysqlclient.so.20.3.11)
+==27479==    by 0x5A35855: mysql_real_connect (in /usr/lib/x86_64-linux-gnu/libmysqlclient.so.20.3.11)
+==27479==    by 0x10F22D: db_reconnect(YAAMP_DB*) (db.cpp:16)
+==27479==    by 0x10F2B1: db_connect() (db.cpp:30)
+==27479==    by 0x10E43C: main (stratum.cpp:300)
+==27479== 
+==27479== 46 bytes in 1 blocks are possibly lost in loss record 28 of 83
+==27479==    at 0x4C2FB0F: malloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==27479==    by 0x5A68FDF: ??? (in /usr/lib/x86_64-linux-gnu/libmysqlclient.so.20.3.11)
+==27479==    by 0x5A691FD: ??? (in /usr/lib/x86_64-linux-gnu/libmysqlclient.so.20.3.11)
+==27479==    by 0x5A31B2C: ??? (in /usr/lib/x86_64-linux-gnu/libmysqlclient.so.20.3.11)
+==27479==    by 0x5A31D6C: ??? (in /usr/lib/x86_64-linux-gnu/libmysqlclient.so.20.3.11)
+==27479==    by 0x5A2DC63: ??? (in /usr/lib/x86_64-linux-gnu/libmysqlclient.so.20.3.11)
+==27479==    by 0x5A32183: ??? (in /usr/lib/x86_64-linux-gnu/libmysqlclient.so.20.3.11)
+==27479==    by 0x5A35855: mysql_real_connect (in /usr/lib/x86_64-linux-gnu/libmysqlclient.so.20.3.11)
+==27479==    by 0x10F22D: db_reconnect(YAAMP_DB*) (db.cpp:16)
+==27479==    by 0x10F2B1: db_connect() (db.cpp:30)
+==27479==    by 0x10E484: main (stratum.cpp:309)
+==27479== 
+==27479== 56 bytes in 1 blocks are possibly lost in loss record 29 of 83
+==27479==    at 0x4C2FB0F: malloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==27479==    by 0x5A68FDF: ??? (in /usr/lib/x86_64-linux-gnu/libmysqlclient.so.20.3.11)
+==27479==    by 0x5A6802C: ??? (in /usr/lib/x86_64-linux-gnu/libmysqlclient.so.20.3.11)
+==27479==    by 0x5A285D4: mysql_server_init (in /usr/lib/x86_64-linux-gnu/libmysqlclient.so.20.3.11)
+==27479==    by 0x5A30C36: mysql_init (in /usr/lib/x86_64-linux-gnu/libmysqlclient.so.20.3.11)
+==27479==    by 0x10F1E5: db_reconnect(YAAMP_DB*) (db.cpp:13)
+==27479==    by 0x10F2B1: db_connect() (db.cpp:30)
+==27479==    by 0x10E43C: main (stratum.cpp:300)
+==27479== 
+==27479== 62 bytes in 3 blocks are still reachable in loss record 30 of 83
+==27479==    at 0x4C2FB0F: malloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==27479==    by 0x8C61A50: ??? (in /usr/lib/x86_64-linux-gnu/libtasn1.so.6.5.5)
+==27479==    by 0x8C62CB1: asn1_array2tree (in /usr/lib/x86_64-linux-gnu/libtasn1.so.6.5.5)
+==27479==    by 0x79B0CFC: ??? (in /usr/lib/x86_64-linux-gnu/libgnutls.so.30.14.10)
+==27479==    by 0x798F580: ??? (in /usr/lib/x86_64-linux-gnu/libgnutls.so.30.14.10)
+==27479==    by 0x4010732: call_init (dl-init.c:72)
+==27479==    by 0x4010732: _dl_init (dl-init.c:119)
+==27479==    by 0x40010C9: ??? (in /lib/x86_64-linux-gnu/ld-2.27.so)
+==27479==    by 0x1: ???
+==27479==    by 0x1FFF00078E: ???
+==27479==    by 0x1FFF000798: ???
+==27479== 
+==27479== 65 bytes in 1 blocks are possibly lost in loss record 31 of 83
+==27479==    at 0x4C2FB0F: malloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==27479==    by 0x5A68FDF: ??? (in /usr/lib/x86_64-linux-gnu/libmysqlclient.so.20.3.11)
+==27479==    by 0x5A691FD: ??? (in /usr/lib/x86_64-linux-gnu/libmysqlclient.so.20.3.11)
+==27479==    by 0x5A351C8: mysql_real_connect (in /usr/lib/x86_64-linux-gnu/libmysqlclient.so.20.3.11)
+==27479==    by 0x10F22D: db_reconnect(YAAMP_DB*) (db.cpp:16)
+==27479==    by 0x10F2B1: db_connect() (db.cpp:30)
+==27479==    by 0x10E43C: main (stratum.cpp:300)
+==27479== 
+==27479== 65 bytes in 1 blocks are possibly lost in loss record 32 of 83
+==27479==    at 0x4C2FB0F: malloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==27479==    by 0x5A68FDF: ??? (in /usr/lib/x86_64-linux-gnu/libmysqlclient.so.20.3.11)
+==27479==    by 0x5A691FD: ??? (in /usr/lib/x86_64-linux-gnu/libmysqlclient.so.20.3.11)
+==27479==    by 0x5A351C8: mysql_real_connect (in /usr/lib/x86_64-linux-gnu/libmysqlclient.so.20.3.11)
+==27479==    by 0x10F22D: db_reconnect(YAAMP_DB*) (db.cpp:16)
+==27479==    by 0x10F2B1: db_connect() (db.cpp:30)
+==27479==    by 0x10E484: main (stratum.cpp:309)
+==27479== 
+==27479== 80 bytes in 2 blocks are still reachable in loss record 33 of 83
+==27479==    at 0x4C31B25: calloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==27479==    by 0x12C713: default_alloc(unsigned long, int, void*) (json.cpp:81)
+==27479==    by 0x12C7E0: json_alloc(json_state*, unsigned long, int) (json.cpp:100)
+==27479==    by 0x12C9C0: new_value(json_state*, _json_value**, _json_value**, _json_value**, json_type) (json.cpp:163)
+==27479==    by 0x12DBB5: json_parse_ex (json.cpp:577)
+==27479==    by 0x12E923: json_parse (json.cpp:921)
+==27479==    by 0x11B6A5: rpc_call(YAAMP_RPC*, char const*, char const*) (rpc.cpp:270)
+==27479==    by 0x115687: coind_create_template(YAAMP_COIND*) (coind_template.cpp:240)
+==27479==    by 0x116B8C: coind_create_job(YAAMP_COIND*, bool) (coind_template.cpp:535)
+==27479==    by 0x110C50: db_update_coinds(YAAMP_DB*) (db.cpp:352)
+==27479==    by 0x10E4CE: main (stratum.cpp:314)
+==27479== 
+==27479== 80 bytes in 1 blocks are possibly lost in loss record 34 of 83
+==27479==    at 0x4C2FB0F: malloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==27479==    by 0x5A68FDF: ??? (in /usr/lib/x86_64-linux-gnu/libmysqlclient.so.20.3.11)
+==27479==    by 0x5A67082: ??? (in /usr/lib/x86_64-linux-gnu/libmysqlclient.so.20.3.11)
+==27479==    by 0x5A341C2: mysql_options4 (in /usr/lib/x86_64-linux-gnu/libmysqlclient.so.20.3.11)
+==27479==    by 0x5A3445C: mysql_real_connect (in /usr/lib/x86_64-linux-gnu/libmysqlclient.so.20.3.11)
+==27479==    by 0x10F22D: db_reconnect(YAAMP_DB*) (db.cpp:16)
+==27479==    by 0x10F2B1: db_connect() (db.cpp:30)
+==27479==    by 0x10E43C: main (stratum.cpp:300)
+==27479== 
+==27479== 80 bytes in 1 blocks are possibly lost in loss record 35 of 83
+==27479==    at 0x4C2FB0F: malloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==27479==    by 0x5A68FDF: ??? (in /usr/lib/x86_64-linux-gnu/libmysqlclient.so.20.3.11)
+==27479==    by 0x5A67082: ??? (in /usr/lib/x86_64-linux-gnu/libmysqlclient.so.20.3.11)
+==27479==    by 0x5A341C2: mysql_options4 (in /usr/lib/x86_64-linux-gnu/libmysqlclient.so.20.3.11)
+==27479==    by 0x5A344C4: mysql_real_connect (in /usr/lib/x86_64-linux-gnu/libmysqlclient.so.20.3.11)
+==27479==    by 0x10F22D: db_reconnect(YAAMP_DB*) (db.cpp:16)
+==27479==    by 0x10F2B1: db_connect() (db.cpp:30)
+==27479==    by 0x10E43C: main (stratum.cpp:300)
+==27479== 
+==27479== 80 bytes in 1 blocks are possibly lost in loss record 36 of 83
+==27479==    at 0x4C2FB0F: malloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==27479==    by 0x5A68FDF: ??? (in /usr/lib/x86_64-linux-gnu/libmysqlclient.so.20.3.11)
+==27479==    by 0x5A67082: ??? (in /usr/lib/x86_64-linux-gnu/libmysqlclient.so.20.3.11)
+==27479==    by 0x5A341C2: mysql_options4 (in /usr/lib/x86_64-linux-gnu/libmysqlclient.so.20.3.11)
+==27479==    by 0x5A3445C: mysql_real_connect (in /usr/lib/x86_64-linux-gnu/libmysqlclient.so.20.3.11)
+==27479==    by 0x10F22D: db_reconnect(YAAMP_DB*) (db.cpp:16)
+==27479==    by 0x10F2B1: db_connect() (db.cpp:30)
+==27479==    by 0x10E484: main (stratum.cpp:309)
+==27479== 
+==27479== 80 bytes in 1 blocks are possibly lost in loss record 37 of 83
+==27479==    at 0x4C2FB0F: malloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==27479==    by 0x5A68FDF: ??? (in /usr/lib/x86_64-linux-gnu/libmysqlclient.so.20.3.11)
+==27479==    by 0x5A67082: ??? (in /usr/lib/x86_64-linux-gnu/libmysqlclient.so.20.3.11)
+==27479==    by 0x5A341C2: mysql_options4 (in /usr/lib/x86_64-linux-gnu/libmysqlclient.so.20.3.11)
+==27479==    by 0x5A344C4: mysql_real_connect (in /usr/lib/x86_64-linux-gnu/libmysqlclient.so.20.3.11)
+==27479==    by 0x10F22D: db_reconnect(YAAMP_DB*) (db.cpp:16)
+==27479==    by 0x10F2B1: db_connect() (db.cpp:30)
+==27479==    by 0x10E484: main (stratum.cpp:309)
+==27479== 
+==27479== 88 bytes in 1 blocks are possibly lost in loss record 38 of 83
+==27479==    at 0x4C2FB0F: malloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==27479==    by 0x5A68FDF: ??? (in /usr/lib/x86_64-linux-gnu/libmysqlclient.so.20.3.11)
+==27479==    by 0x5A67082: ??? (in /usr/lib/x86_64-linux-gnu/libmysqlclient.so.20.3.11)
+==27479==    by 0x5A341C2: mysql_options4 (in /usr/lib/x86_64-linux-gnu/libmysqlclient.so.20.3.11)
+==27479==    by 0x5A3443E: mysql_real_connect (in /usr/lib/x86_64-linux-gnu/libmysqlclient.so.20.3.11)
+==27479==    by 0x10F22D: db_reconnect(YAAMP_DB*) (db.cpp:16)
+==27479==    by 0x10F2B1: db_connect() (db.cpp:30)
+==27479==    by 0x10E43C: main (stratum.cpp:300)
+==27479== 
+==27479== 88 bytes in 1 blocks are possibly lost in loss record 39 of 83
+==27479==    at 0x4C2FB0F: malloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==27479==    by 0x5A68FDF: ??? (in /usr/lib/x86_64-linux-gnu/libmysqlclient.so.20.3.11)
+==27479==    by 0x5A67082: ??? (in /usr/lib/x86_64-linux-gnu/libmysqlclient.so.20.3.11)
+==27479==    by 0x5A341C2: mysql_options4 (in /usr/lib/x86_64-linux-gnu/libmysqlclient.so.20.3.11)
+==27479==    by 0x5A3447A: mysql_real_connect (in /usr/lib/x86_64-linux-gnu/libmysqlclient.so.20.3.11)
+==27479==    by 0x10F22D: db_reconnect(YAAMP_DB*) (db.cpp:16)
+==27479==    by 0x10F2B1: db_connect() (db.cpp:30)
+==27479==    by 0x10E43C: main (stratum.cpp:300)
+==27479== 
+==27479== 88 bytes in 1 blocks are possibly lost in loss record 40 of 83
+==27479==    at 0x4C2FB0F: malloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==27479==    by 0x5A68FDF: ??? (in /usr/lib/x86_64-linux-gnu/libmysqlclient.so.20.3.11)
+==27479==    by 0x5A67082: ??? (in /usr/lib/x86_64-linux-gnu/libmysqlclient.so.20.3.11)
+==27479==    by 0x5A341C2: mysql_options4 (in /usr/lib/x86_64-linux-gnu/libmysqlclient.so.20.3.11)
+==27479==    by 0x5A3443E: mysql_real_connect (in /usr/lib/x86_64-linux-gnu/libmysqlclient.so.20.3.11)
+==27479==    by 0x10F22D: db_reconnect(YAAMP_DB*) (db.cpp:16)
+==27479==    by 0x10F2B1: db_connect() (db.cpp:30)
+==27479==    by 0x10E484: main (stratum.cpp:309)
+==27479== 
+==27479== 88 bytes in 1 blocks are possibly lost in loss record 41 of 83
+==27479==    at 0x4C2FB0F: malloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==27479==    by 0x5A68FDF: ??? (in /usr/lib/x86_64-linux-gnu/libmysqlclient.so.20.3.11)
+==27479==    by 0x5A67082: ??? (in /usr/lib/x86_64-linux-gnu/libmysqlclient.so.20.3.11)
+==27479==    by 0x5A341C2: mysql_options4 (in /usr/lib/x86_64-linux-gnu/libmysqlclient.so.20.3.11)
+==27479==    by 0x5A3447A: mysql_real_connect (in /usr/lib/x86_64-linux-gnu/libmysqlclient.so.20.3.11)
+==27479==    by 0x10F22D: db_reconnect(YAAMP_DB*) (db.cpp:16)
+==27479==    by 0x10F2B1: db_connect() (db.cpp:30)
+==27479==    by 0x10E484: main (stratum.cpp:309)
+==27479== 
+==27479== 96 bytes in 1 blocks are possibly lost in loss record 42 of 83
+==27479==    at 0x4C2FB0F: malloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==27479==    by 0x5A68FDF: ??? (in /usr/lib/x86_64-linux-gnu/libmysqlclient.so.20.3.11)
+==27479==    by 0x5A67082: ??? (in /usr/lib/x86_64-linux-gnu/libmysqlclient.so.20.3.11)
+==27479==    by 0x5A341C2: mysql_options4 (in /usr/lib/x86_64-linux-gnu/libmysqlclient.so.20.3.11)
+==27479==    by 0x5A34420: mysql_real_connect (in /usr/lib/x86_64-linux-gnu/libmysqlclient.so.20.3.11)
+==27479==    by 0x10F22D: db_reconnect(YAAMP_DB*) (db.cpp:16)
+==27479==    by 0x10F2B1: db_connect() (db.cpp:30)
+==27479==    by 0x10E43C: main (stratum.cpp:300)
+==27479== 
+==27479== 96 bytes in 1 blocks are possibly lost in loss record 43 of 83
+==27479==    at 0x4C2FB0F: malloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==27479==    by 0x5A68FDF: ??? (in /usr/lib/x86_64-linux-gnu/libmysqlclient.so.20.3.11)
+==27479==    by 0x5A67082: ??? (in /usr/lib/x86_64-linux-gnu/libmysqlclient.so.20.3.11)
+==27479==    by 0x5A341C2: mysql_options4 (in /usr/lib/x86_64-linux-gnu/libmysqlclient.so.20.3.11)
+==27479==    by 0x5A34420: mysql_real_connect (in /usr/lib/x86_64-linux-gnu/libmysqlclient.so.20.3.11)
+==27479==    by 0x10F22D: db_reconnect(YAAMP_DB*) (db.cpp:16)
+==27479==    by 0x10F2B1: db_connect() (db.cpp:30)
+==27479==    by 0x10E484: main (stratum.cpp:309)
+==27479== 
+==27479== 120 bytes in 3 blocks are still reachable in loss record 44 of 83
+==27479==    at 0x4C31B25: calloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==27479==    by 0x12C713: default_alloc(unsigned long, int, void*) (json.cpp:81)
+==27479==    by 0x12C7E0: json_alloc(json_state*, unsigned long, int) (json.cpp:100)
+==27479==    by 0x12C9C0: new_value(json_state*, _json_value**, _json_value**, _json_value**, json_type) (json.cpp:163)
+==27479==    by 0x12DA5D: json_parse_ex (json.cpp:547)
+==27479==    by 0x12E923: json_parse (json.cpp:921)
+==27479==    by 0x11B6A5: rpc_call(YAAMP_RPC*, char const*, char const*) (rpc.cpp:270)
+==27479==    by 0x115687: coind_create_template(YAAMP_COIND*) (coind_template.cpp:240)
+==27479==    by 0x116B8C: coind_create_job(YAAMP_COIND*, bool) (coind_template.cpp:535)
+==27479==    by 0x110C50: db_update_coinds(YAAMP_DB*) (db.cpp:352)
+==27479==    by 0x10E4CE: main (stratum.cpp:314)
+==27479== 
+==27479== 136 bytes in 1 blocks are possibly lost in loss record 45 of 83
+==27479==    at 0x4C31B25: calloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==27479==    by 0x5A68F8B: ??? (in /usr/lib/x86_64-linux-gnu/libmysqlclient.so.20.3.11)
+==27479==    by 0x5A30CC0: mysql_init (in /usr/lib/x86_64-linux-gnu/libmysqlclient.so.20.3.11)
+==27479==    by 0x10F1E5: db_reconnect(YAAMP_DB*) (db.cpp:13)
+==27479==    by 0x10F2B1: db_connect() (db.cpp:30)
+==27479==    by 0x10E43C: main (stratum.cpp:300)
+==27479== 
+==27479== 136 bytes in 1 blocks are possibly lost in loss record 46 of 83
+==27479==    at 0x4C31B25: calloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==27479==    by 0x5A68F8B: ??? (in /usr/lib/x86_64-linux-gnu/libmysqlclient.so.20.3.11)
+==27479==    by 0x5A30CC0: mysql_init (in /usr/lib/x86_64-linux-gnu/libmysqlclient.so.20.3.11)
+==27479==    by 0x10F1E5: db_reconnect(YAAMP_DB*) (db.cpp:13)
+==27479==    by 0x10F2B1: db_connect() (db.cpp:30)
+==27479==    by 0x10E484: main (stratum.cpp:309)
+==27479== 
+==27479== 152 bytes in 1 blocks are possibly lost in loss record 47 of 83
+==27479==    at 0x4C2FB0F: malloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==27479==    by 0x5A68FDF: ??? (in /usr/lib/x86_64-linux-gnu/libmysqlclient.so.20.3.11)
+==27479==    by 0x5A67082: ??? (in /usr/lib/x86_64-linux-gnu/libmysqlclient.so.20.3.11)
+==27479==    by 0x5A35165: mysql_real_connect (in /usr/lib/x86_64-linux-gnu/libmysqlclient.so.20.3.11)
+==27479==    by 0x10F22D: db_reconnect(YAAMP_DB*) (db.cpp:16)
+==27479==    by 0x10F2B1: db_connect() (db.cpp:30)
+==27479==    by 0x10E43C: main (stratum.cpp:300)
+==27479== 
+==27479== 152 bytes in 1 blocks are possibly lost in loss record 48 of 83
+==27479==    at 0x4C2FB0F: malloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==27479==    by 0x5A68FDF: ??? (in /usr/lib/x86_64-linux-gnu/libmysqlclient.so.20.3.11)
+==27479==    by 0x5A67082: ??? (in /usr/lib/x86_64-linux-gnu/libmysqlclient.so.20.3.11)
+==27479==    by 0x5A35165: mysql_real_connect (in /usr/lib/x86_64-linux-gnu/libmysqlclient.so.20.3.11)
+==27479==    by 0x10F22D: db_reconnect(YAAMP_DB*) (db.cpp:16)
+==27479==    by 0x10F2B1: db_connect() (db.cpp:30)
+==27479==    by 0x10E484: main (stratum.cpp:309)
+==27479== 
+==27479== 160 bytes in 4 blocks are still reachable in loss record 49 of 83
+==27479==    at 0x4C31B25: calloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==27479==    by 0x12C713: default_alloc(unsigned long, int, void*) (json.cpp:81)
+==27479==    by 0x12C7E0: json_alloc(json_state*, unsigned long, int) (json.cpp:100)
+==27479==    by 0x12C9C0: new_value(json_state*, _json_value**, _json_value**, _json_value**, json_type) (json.cpp:163)
+==27479==    by 0x12DA99: json_parse_ex (json.cpp:554)
+==27479==    by 0x12E923: json_parse (json.cpp:921)
+==27479==    by 0x11B6A5: rpc_call(YAAMP_RPC*, char const*, char const*) (rpc.cpp:270)
+==27479==    by 0x115687: coind_create_template(YAAMP_COIND*) (coind_template.cpp:240)
+==27479==    by 0x116B8C: coind_create_job(YAAMP_COIND*, bool) (coind_template.cpp:535)
+==27479==    by 0x110C50: db_update_coinds(YAAMP_DB*) (db.cpp:352)
+==27479==    by 0x10E4CE: main (stratum.cpp:314)
+==27479== 
+==27479== 160 bytes in 1 blocks are possibly lost in loss record 50 of 83
+==27479==    at 0x4C31B25: calloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==27479==    by 0x5A68F8B: ??? (in /usr/lib/x86_64-linux-gnu/libmysqlclient.so.20.3.11)
+==27479==    by 0x5A307EC: ??? (in /usr/lib/x86_64-linux-gnu/libmysqlclient.so.20.3.11)
+==27479==    by 0x5A32DA6: mysql_store_result (in /usr/lib/x86_64-linux-gnu/libmysqlclient.so.20.3.11)
+==27479==    by 0x10FBE0: db_update_coinds(YAAMP_DB*) (db.cpp:199)
+==27479==    by 0x10E4CE: main (stratum.cpp:314)
+==27479== 
+==27479== 176 bytes in 1 blocks are possibly lost in loss record 51 of 83
+==27479==    at 0x4C2FB0F: malloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==27479==    by 0x5A68FDF: ??? (in /usr/lib/x86_64-linux-gnu/libmysqlclient.so.20.3.11)
+==27479==    by 0x5A671B8: ??? (in /usr/lib/x86_64-linux-gnu/libmysqlclient.so.20.3.11)
+==27479==    by 0x5A3A263: ??? (in /usr/lib/x86_64-linux-gnu/libmysqlclient.so.20.3.11)
+==27479==    by 0x5A285DB: mysql_server_init (in /usr/lib/x86_64-linux-gnu/libmysqlclient.so.20.3.11)
+==27479==    by 0x5A30C36: mysql_init (in /usr/lib/x86_64-linux-gnu/libmysqlclient.so.20.3.11)
+==27479==    by 0x10F1E5: db_reconnect(YAAMP_DB*) (db.cpp:13)
+==27479==    by 0x10F2B1: db_connect() (db.cpp:30)
+==27479==    by 0x10E43C: main (stratum.cpp:300)
+==27479== 
+==27479== 224 bytes in 1 blocks are possibly lost in loss record 52 of 83
+==27479==    at 0x4C31B25: calloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==27479==    by 0x5A68F8B: ??? (in /usr/lib/x86_64-linux-gnu/libmysqlclient.so.20.3.11)
+==27479==    by 0x5A30D47: mysql_init (in /usr/lib/x86_64-linux-gnu/libmysqlclient.so.20.3.11)
+==27479==    by 0x10F1E5: db_reconnect(YAAMP_DB*) (db.cpp:13)
+==27479==    by 0x10F2B1: db_connect() (db.cpp:30)
+==27479==    by 0x10E43C: main (stratum.cpp:300)
+==27479== 
+==27479== 224 bytes in 1 blocks are possibly lost in loss record 53 of 83
+==27479==    at 0x4C31B25: calloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==27479==    by 0x5A68F8B: ??? (in /usr/lib/x86_64-linux-gnu/libmysqlclient.so.20.3.11)
+==27479==    by 0x5A30D47: mysql_init (in /usr/lib/x86_64-linux-gnu/libmysqlclient.so.20.3.11)
+==27479==    by 0x10F1E5: db_reconnect(YAAMP_DB*) (db.cpp:13)
+==27479==    by 0x10F2B1: db_connect() (db.cpp:30)
+==27479==    by 0x10E484: main (stratum.cpp:309)
+==27479== 
+==27479== 240 bytes in 6 blocks are still reachable in loss record 54 of 83
+==27479==    at 0x4C31B25: calloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==27479==    by 0x12C713: default_alloc(unsigned long, int, void*) (json.cpp:81)
+==27479==    by 0x12C7E0: json_alloc(json_state*, unsigned long, int) (json.cpp:100)
+==27479==    by 0x12C9C0: new_value(json_state*, _json_value**, _json_value**, _json_value**, json_type) (json.cpp:163)
+==27479==    by 0x12DDAD: json_parse_ex (json.cpp:611)
+==27479==    by 0x12E923: json_parse (json.cpp:921)
+==27479==    by 0x11B6A5: rpc_call(YAAMP_RPC*, char const*, char const*) (rpc.cpp:270)
+==27479==    by 0x115687: coind_create_template(YAAMP_COIND*) (coind_template.cpp:240)
+==27479==    by 0x116B8C: coind_create_job(YAAMP_COIND*, bool) (coind_template.cpp:535)
+==27479==    by 0x110C50: db_update_coinds(YAAMP_DB*) (db.cpp:352)
+==27479==    by 0x10E4CE: main (stratum.cpp:314)
+==27479== 
+==27479== 366 bytes in 13 blocks are still reachable in loss record 55 of 83
+==27479==    at 0x4C2FB0F: malloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==27479==    by 0x12C721: default_alloc(unsigned long, int, void*) (json.cpp:81)
+==27479==    by 0x12C7E0: json_alloc(json_state*, unsigned long, int) (json.cpp:100)
+==27479==    by 0x12C96D: new_value(json_state*, _json_value**, _json_value**, _json_value**, json_type) (json.cpp:148)
+==27479==    by 0x12DAE1: json_parse_ex (json.cpp:562)
+==27479==    by 0x12E923: json_parse (json.cpp:921)
+==27479==    by 0x11B6A5: rpc_call(YAAMP_RPC*, char const*, char const*) (rpc.cpp:270)
+==27479==    by 0x115687: coind_create_template(YAAMP_COIND*) (coind_template.cpp:240)
+==27479==    by 0x116B8C: coind_create_job(YAAMP_COIND*, bool) (coind_template.cpp:535)
+==27479==    by 0x110C50: db_update_coinds(YAAMP_DB*) (db.cpp:352)
+==27479==    by 0x10E4CE: main (stratum.cpp:314)
+==27479== 
+==27479== 504 bytes in 1 blocks are possibly lost in loss record 56 of 83
+==27479==    at 0x4C31B25: calloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==27479==    by 0x5A68F8B: ??? (in /usr/lib/x86_64-linux-gnu/libmysqlclient.so.20.3.11)
+==27479==    by 0x5A32D5E: mysql_store_result (in /usr/lib/x86_64-linux-gnu/libmysqlclient.so.20.3.11)
+==27479==    by 0x10FBE0: db_update_coinds(YAAMP_DB*) (db.cpp:199)
+==27479==    by 0x10E4CE: main (stratum.cpp:314)
+==27479== 
+==27479== 520 bytes in 13 blocks are still reachable in loss record 57 of 83
+==27479==    at 0x4C31B25: calloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==27479==    by 0x12C713: default_alloc(unsigned long, int, void*) (json.cpp:81)
+==27479==    by 0x12C7E0: json_alloc(json_state*, unsigned long, int) (json.cpp:100)
+==27479==    by 0x12C9C0: new_value(json_state*, _json_value**, _json_value**, _json_value**, json_type) (json.cpp:163)
+==27479==    by 0x12DAE1: json_parse_ex (json.cpp:562)
+==27479==    by 0x12E923: json_parse (json.cpp:921)
+==27479==    by 0x11B6A5: rpc_call(YAAMP_RPC*, char const*, char const*) (rpc.cpp:270)
+==27479==    by 0x115687: coind_create_template(YAAMP_COIND*) (coind_template.cpp:240)
+==27479==    by 0x116B8C: coind_create_job(YAAMP_COIND*, bool) (coind_template.cpp:535)
+==27479==    by 0x110C50: db_update_coinds(YAAMP_DB*) (db.cpp:352)
+==27479==    by 0x10E4CE: main (stratum.cpp:314)
+==27479== 
+==27479== 528 bytes in 1 blocks are possibly lost in loss record 58 of 83
+==27479==    at 0x4C2FB0F: malloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==27479==    by 0x5A68FDF: ??? (in /usr/lib/x86_64-linux-gnu/libmysqlclient.so.20.3.11)
+==27479==    by 0x5A5FD95: ??? (in /usr/lib/x86_64-linux-gnu/libmysqlclient.so.20.3.11)
+==27479==    by 0x5A34AAD: mysql_real_connect (in /usr/lib/x86_64-linux-gnu/libmysqlclient.so.20.3.11)
+==27479==    by 0x10F22D: db_reconnect(YAAMP_DB*) (db.cpp:16)
+==27479==    by 0x10F2B1: db_connect() (db.cpp:30)
+==27479==    by 0x10E43C: main (stratum.cpp:300)
+==27479== 
+==27479== 528 bytes in 1 blocks are possibly lost in loss record 59 of 83
+==27479==    at 0x4C2FB0F: malloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==27479==    by 0x5A68FDF: ??? (in /usr/lib/x86_64-linux-gnu/libmysqlclient.so.20.3.11)
+==27479==    by 0x5A5FD95: ??? (in /usr/lib/x86_64-linux-gnu/libmysqlclient.so.20.3.11)
+==27479==    by 0x5A34AAD: mysql_real_connect (in /usr/lib/x86_64-linux-gnu/libmysqlclient.so.20.3.11)
+==27479==    by 0x10F22D: db_reconnect(YAAMP_DB*) (db.cpp:16)
+==27479==    by 0x10F2B1: db_connect() (db.cpp:30)
+==27479==    by 0x10E484: main (stratum.cpp:309)
+==27479== 
+==27479== 552 bytes in 1 blocks are still reachable in loss record 60 of 83
+==27479==    at 0x4C2FB0F: malloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==27479==    by 0x6730E49: __fopen_internal (iofopen.c:65)
+==27479==    by 0x6730E49: fopen@@GLIBC_2.2.5 (iofopen.c:89)
+==27479==    by 0x1182B6: initlog(char const*) (util.cpp:98)
+==27479==    by 0x10DE30: main (stratum.cpp:225)
+==27479== 
+==27479== 552 bytes in 1 blocks are still reachable in loss record 61 of 83
+==27479==    at 0x4C2FB0F: malloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==27479==    by 0x6730E49: __fopen_internal (iofopen.c:65)
+==27479==    by 0x6730E49: fopen@@GLIBC_2.2.5 (iofopen.c:89)
+==27479==    by 0x1182D0: initlog(char const*) (util.cpp:100)
+==27479==    by 0x10DE30: main (stratum.cpp:225)
+==27479== 
+==27479== 552 bytes in 1 blocks are still reachable in loss record 62 of 83
+==27479==    at 0x4C2FB0F: malloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==27479==    by 0x6730E49: __fopen_internal (iofopen.c:65)
+==27479==    by 0x6730E49: fopen@@GLIBC_2.2.5 (iofopen.c:89)
+==27479==    by 0x1182EA: initlog(char const*) (util.cpp:101)
+==27479==    by 0x10DE30: main (stratum.cpp:225)
+==27479== 
+==27479== 552 bytes in 1 blocks are still reachable in loss record 63 of 83
+==27479==    at 0x4C2FB0F: malloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==27479==    by 0x6730E49: __fopen_internal (iofopen.c:65)
+==27479==    by 0x6730E49: fopen@@GLIBC_2.2.5 (iofopen.c:89)
+==27479==    by 0x118304: initlog(char const*) (util.cpp:102)
+==27479==    by 0x10DE30: main (stratum.cpp:225)
+==27479== 
+==27479== 836 bytes in 3 blocks are still reachable in loss record 64 of 83
+==27479==    at 0x4C2FB0F: malloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==27479==    by 0x12C721: default_alloc(unsigned long, int, void*) (json.cpp:81)
+==27479==    by 0x12C7E0: json_alloc(json_state*, unsigned long, int) (json.cpp:100)
+==27479==    by 0x12C90B: new_value(json_state*, _json_value**, _json_value**, _json_value**, json_type) (json.cpp:135)
+==27479==    by 0x12DA5D: json_parse_ex (json.cpp:547)
+==27479==    by 0x12E923: json_parse (json.cpp:921)
+==27479==    by 0x11B6A5: rpc_call(YAAMP_RPC*, char const*, char const*) (rpc.cpp:270)
+==27479==    by 0x115687: coind_create_template(YAAMP_COIND*) (coind_template.cpp:240)
+==27479==    by 0x116B8C: coind_create_job(YAAMP_COIND*, bool) (coind_template.cpp:535)
+==27479==    by 0x110C50: db_update_coinds(YAAMP_DB*) (db.cpp:352)
+==27479==    by 0x10E4CE: main (stratum.cpp:314)
+==27479== 
+==27479== 1,040 bytes in 1 blocks are still reachable in loss record 65 of 83
+==27479==    at 0x4C31B25: calloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==27479==    by 0x66F52FE: __new_exitfn (cxa_atexit.c:109)
+==27479==    by 0x66F5488: __internal_atexit (cxa_atexit.c:40)
+==27479==    by 0x66F5488: __cxa_atexit (cxa_atexit.c:66)
+==27479==    by 0x123B3B: __static_initialization_and_destruction_0(int, int) (iostream:74)
+==27479==    by 0x123B51: _GLOBAL__sub_I__Z12coinbase_auxP18YAAMP_JOB_TEMPLATEPc (coinbase.cpp:551)
+==27479==    by 0x21944C: __libc_csu_init (in /var/stratum/stratum)
+==27479==    by 0x66D3B27: (below main) (libc-start.c:266)
+==27479== 
+==27479== 1,296 bytes in 1 blocks are still reachable in loss record 66 of 83
+==27479==    at 0x4C31B25: calloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==27479==    by 0x67F14D1: getifaddrs_internal (ifaddrs.c:410)
+==27479==    by 0x67F21AF: getifaddrs (ifaddrs.c:830)
+==27479==    by 0x10DE1A: main (stratum.cpp:223)
+==27479== 
+==27479== 1,304 bytes in 1 blocks are still reachable in loss record 67 of 83
+==27479==    at 0x4C3017F: operator new(unsigned long) (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==27479==    by 0x10F2A1: db_connect() (db.cpp:29)
+==27479==    by 0x10E43C: main (stratum.cpp:300)
+==27479== 
+==27479== 1,304 bytes in 1 blocks are still reachable in loss record 68 of 83
+==27479==    at 0x4C3017F: operator new(unsigned long) (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==27479==    by 0x10F2A1: db_connect() (db.cpp:29)
+==27479==    by 0x10E484: main (stratum.cpp:309)
+==27479== 
+==27479== 1,453 bytes in 67 blocks are still reachable in loss record 69 of 83
+==27479==    at 0x4C2FB0F: malloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==27479==    by 0x8C61A50: ??? (in /usr/lib/x86_64-linux-gnu/libtasn1.so.6.5.5)
+==27479==    by 0x8C62CB1: asn1_array2tree (in /usr/lib/x86_64-linux-gnu/libtasn1.so.6.5.5)
+==27479==    by 0x79B0C14: ??? (in /usr/lib/x86_64-linux-gnu/libgnutls.so.30.14.10)
+==27479==    by 0x798F580: ??? (in /usr/lib/x86_64-linux-gnu/libgnutls.so.30.14.10)
+==27479==    by 0x4010732: call_init (dl-init.c:72)
+==27479==    by 0x4010732: _dl_init (dl-init.c:119)
+==27479==    by 0x40010C9: ??? (in /lib/x86_64-linux-gnu/ld-2.27.so)
+==27479==    by 0x1: ???
+==27479==    by 0x1FFF00078E: ???
+==27479==    by 0x1FFF000798: ???
+==27479== 
+==27479== 4,088 bytes in 1 blocks are still reachable in loss record 70 of 83
+==27479==    at 0x4C2FB0F: malloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==27479==    by 0x5A693B8: ??? (in /usr/lib/x86_64-linux-gnu/libmysqlclient.so.20.3.11)
+==27479==    by 0x5A69486: ??? (in /usr/lib/x86_64-linux-gnu/libmysqlclient.so.20.3.11)
+==27479==    by 0x5A62A4B: ??? (in /usr/lib/x86_64-linux-gnu/libmysqlclient.so.20.3.11)
+==27479==    by 0x5A4F410: ??? (in /usr/lib/x86_64-linux-gnu/libmysqlclient.so.20.3.11)
+==27479==    by 0x5A50571: ??? (in /usr/lib/x86_64-linux-gnu/libmysqlclient.so.20.3.11)
+==27479==    by 0x5A47C0B: ??? (in /usr/lib/x86_64-linux-gnu/libmysqlclient.so.20.3.11)
+==27479==    by 0x5A6378D: ??? (in /usr/lib/x86_64-linux-gnu/libmysqlclient.so.20.3.11)
+==27479==    by 0x4E4B826: __pthread_once_slow (pthread_once.c:116)
+==27479==    by 0x5A64111: ??? (in /usr/lib/x86_64-linux-gnu/libmysqlclient.so.20.3.11)
+==27479==    by 0x5A643A9: ??? (in /usr/lib/x86_64-linux-gnu/libmysqlclient.so.20.3.11)
+==27479==    by 0x5A312A1: ??? (in /usr/lib/x86_64-linux-gnu/libmysqlclient.so.20.3.11)
+==27479== 
+==27479== 4,088 bytes in 1 blocks are still reachable in loss record 71 of 83
+==27479==    at 0x4C2FB0F: malloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==27479==    by 0x5A693B8: ??? (in /usr/lib/x86_64-linux-gnu/libmysqlclient.so.20.3.11)
+==27479==    by 0x5A69486: ??? (in /usr/lib/x86_64-linux-gnu/libmysqlclient.so.20.3.11)
+==27479==    by 0x5A62A8D: ??? (in /usr/lib/x86_64-linux-gnu/libmysqlclient.so.20.3.11)
+==27479==    by 0x5A4F410: ??? (in /usr/lib/x86_64-linux-gnu/libmysqlclient.so.20.3.11)
+==27479==    by 0x5A50571: ??? (in /usr/lib/x86_64-linux-gnu/libmysqlclient.so.20.3.11)
+==27479==    by 0x5A47C0B: ??? (in /usr/lib/x86_64-linux-gnu/libmysqlclient.so.20.3.11)
+==27479==    by 0x5A6378D: ??? (in /usr/lib/x86_64-linux-gnu/libmysqlclient.so.20.3.11)
+==27479==    by 0x4E4B826: __pthread_once_slow (pthread_once.c:116)
+==27479==    by 0x5A64111: ??? (in /usr/lib/x86_64-linux-gnu/libmysqlclient.so.20.3.11)
+==27479==    by 0x5A643A9: ??? (in /usr/lib/x86_64-linux-gnu/libmysqlclient.so.20.3.11)
+==27479==    by 0x5A312A1: ??? (in /usr/lib/x86_64-linux-gnu/libmysqlclient.so.20.3.11)
+==27479== 
+==27479== 8,192 bytes in 1 blocks are possibly lost in loss record 72 of 83
+==27479==    at 0x4C2FB0F: malloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==27479==    by 0x5A68FDF: ??? (in /usr/lib/x86_64-linux-gnu/libmysqlclient.so.20.3.11)
+==27479==    by 0x5A673BE: ??? (in /usr/lib/x86_64-linux-gnu/libmysqlclient.so.20.3.11)
+==27479==    by 0x5A30611: ??? (in /usr/lib/x86_64-linux-gnu/libmysqlclient.so.20.3.11)
+==27479==    by 0x5A310DE: ??? (in /usr/lib/x86_64-linux-gnu/libmysqlclient.so.20.3.11)
+==27479==    by 0x5A32CF0: mysql_real_query (in /usr/lib/x86_64-linux-gnu/libmysqlclient.so.20.3.11)
+==27479==    by 0x10F6BA: db_query(YAAMP_DB*, char const*, ...) (db.cpp:85)
+==27479==    by 0x10FBD1: db_update_coinds(YAAMP_DB*) (db.cpp:197)
+==27479==    by 0x10E4CE: main (stratum.cpp:314)
+==27479== 
+==27479== 8,192 bytes in 1 blocks are possibly lost in loss record 73 of 83
+==27479==    at 0x4C2FB0F: malloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==27479==    by 0x5A68FDF: ??? (in /usr/lib/x86_64-linux-gnu/libmysqlclient.so.20.3.11)
+==27479==    by 0x5A673BE: ??? (in /usr/lib/x86_64-linux-gnu/libmysqlclient.so.20.3.11)
+==27479==    by 0x5A3089A: ??? (in /usr/lib/x86_64-linux-gnu/libmysqlclient.so.20.3.11)
+==27479==    by 0x5A32DA6: mysql_store_result (in /usr/lib/x86_64-linux-gnu/libmysqlclient.so.20.3.11)
+==27479==    by 0x10FBE0: db_update_coinds(YAAMP_DB*) (db.cpp:199)
+==27479==    by 0x10E4CE: main (stratum.cpp:314)
+==27479== 
+==27479== 8,208 bytes in 1 blocks are possibly lost in loss record 74 of 83
+==27479==    at 0x4C2FB0F: malloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==27479==    by 0x5A68FDF: ??? (in /usr/lib/x86_64-linux-gnu/libmysqlclient.so.20.3.11)
+==27479==    by 0x5A6267C: ??? (in /usr/lib/x86_64-linux-gnu/libmysqlclient.so.20.3.11)
+==27479==    by 0x5A34180: mysql_options4 (in /usr/lib/x86_64-linux-gnu/libmysqlclient.so.20.3.11)
+==27479==    by 0x5A34420: mysql_real_connect (in /usr/lib/x86_64-linux-gnu/libmysqlclient.so.20.3.11)
+==27479==    by 0x10F22D: db_reconnect(YAAMP_DB*) (db.cpp:16)
+==27479==    by 0x10F2B1: db_connect() (db.cpp:30)
+==27479==    by 0x10E43C: main (stratum.cpp:300)
+==27479== 
+==27479== 8,208 bytes in 1 blocks are possibly lost in loss record 75 of 83
+==27479==    at 0x4C2FB0F: malloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==27479==    by 0x5A68FDF: ??? (in /usr/lib/x86_64-linux-gnu/libmysqlclient.so.20.3.11)
+==27479==    by 0x5A6267C: ??? (in /usr/lib/x86_64-linux-gnu/libmysqlclient.so.20.3.11)
+==27479==    by 0x5A34180: mysql_options4 (in /usr/lib/x86_64-linux-gnu/libmysqlclient.so.20.3.11)
+==27479==    by 0x5A34420: mysql_real_connect (in /usr/lib/x86_64-linux-gnu/libmysqlclient.so.20.3.11)
+==27479==    by 0x10F22D: db_reconnect(YAAMP_DB*) (db.cpp:16)
+==27479==    by 0x10F2B1: db_connect() (db.cpp:30)
+==27479==    by 0x10E484: main (stratum.cpp:309)
+==27479== 
+==27479== 8,231 bytes in 1 blocks are possibly lost in loss record 76 of 83
+==27479==    at 0x4C2FB0F: malloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==27479==    by 0x5A68FDF: ??? (in /usr/lib/x86_64-linux-gnu/libmysqlclient.so.20.3.11)
+==27479==    by 0x5A3A96B: ??? (in /usr/lib/x86_64-linux-gnu/libmysqlclient.so.20.3.11)
+==27479==    by 0x5A34682: mysql_real_connect (in /usr/lib/x86_64-linux-gnu/libmysqlclient.so.20.3.11)
+==27479==    by 0x10F22D: db_reconnect(YAAMP_DB*) (db.cpp:16)
+==27479==    by 0x10F2B1: db_connect() (db.cpp:30)
+==27479==    by 0x10E43C: main (stratum.cpp:300)
+==27479== 
+==27479== 8,231 bytes in 1 blocks are possibly lost in loss record 77 of 83
+==27479==    at 0x4C2FB0F: malloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==27479==    by 0x5A68FDF: ??? (in /usr/lib/x86_64-linux-gnu/libmysqlclient.so.20.3.11)
+==27479==    by 0x5A3A96B: ??? (in /usr/lib/x86_64-linux-gnu/libmysqlclient.so.20.3.11)
+==27479==    by 0x5A34682: mysql_real_connect (in /usr/lib/x86_64-linux-gnu/libmysqlclient.so.20.3.11)
+==27479==    by 0x10F22D: db_reconnect(YAAMP_DB*) (db.cpp:16)
+==27479==    by 0x10F2B1: db_connect() (db.cpp:30)
+==27479==    by 0x10E484: main (stratum.cpp:309)
+==27479== 
+==27479== 12,312 bytes in 81 blocks are still reachable in loss record 78 of 83
+==27479==    at 0x4C31B25: calloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==27479==    by 0x8C61736: ??? (in /usr/lib/x86_64-linux-gnu/libtasn1.so.6.5.5)
+==27479==    by 0x8C62C79: asn1_array2tree (in /usr/lib/x86_64-linux-gnu/libtasn1.so.6.5.5)
+==27479==    by 0x79B0CFC: ??? (in /usr/lib/x86_64-linux-gnu/libgnutls.so.30.14.10)
+==27479==    by 0x798F580: ??? (in /usr/lib/x86_64-linux-gnu/libgnutls.so.30.14.10)
+==27479==    by 0x4010732: call_init (dl-init.c:72)
+==27479==    by 0x4010732: _dl_init (dl-init.c:119)
+==27479==    by 0x40010C9: ??? (in /lib/x86_64-linux-gnu/ld-2.27.so)
+==27479==    by 0x1: ???
+==27479==    by 0x1FFF00078E: ???
+==27479==    by 0x1FFF000798: ???
+==27479== 
+==27479== 16,416 bytes in 1 blocks are possibly lost in loss record 79 of 83
+==27479==    at 0x4C2FB0F: malloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==27479==    by 0x5A68FDF: ??? (in /usr/lib/x86_64-linux-gnu/libmysqlclient.so.20.3.11)
+==27479==    by 0x5A5FF07: ??? (in /usr/lib/x86_64-linux-gnu/libmysqlclient.so.20.3.11)
+==27479==    by 0x5A34AAD: mysql_real_connect (in /usr/lib/x86_64-linux-gnu/libmysqlclient.so.20.3.11)
+==27479==    by 0x10F22D: db_reconnect(YAAMP_DB*) (db.cpp:16)
+==27479==    by 0x10F2B1: db_connect() (db.cpp:30)
+==27479==    by 0x10E43C: main (stratum.cpp:300)
+==27479== 
+==27479== 16,416 bytes in 1 blocks are possibly lost in loss record 80 of 83
+==27479==    at 0x4C2FB0F: malloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==27479==    by 0x5A68FDF: ??? (in /usr/lib/x86_64-linux-gnu/libmysqlclient.so.20.3.11)
+==27479==    by 0x5A5FF07: ??? (in /usr/lib/x86_64-linux-gnu/libmysqlclient.so.20.3.11)
+==27479==    by 0x5A34AAD: mysql_real_connect (in /usr/lib/x86_64-linux-gnu/libmysqlclient.so.20.3.11)
+==27479==    by 0x10F22D: db_reconnect(YAAMP_DB*) (db.cpp:16)
+==27479==    by 0x10F2B1: db_connect() (db.cpp:30)
+==27479==    by 0x10E484: main (stratum.cpp:309)
+==27479== 
+==27479== 44,656 bytes in 1 blocks are still reachable in loss record 81 of 83
+==27479==    at 0x4C3017F: operator new(unsigned long) (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==27479==    by 0x10FC72: db_update_coinds(YAAMP_DB*) (db.cpp:210)
+==27479==    by 0x10E4CE: main (stratum.cpp:314)
+==27479== 
+==27479== 45,048 bytes in 1 blocks are still reachable in loss record 82 of 83
+==27479==    at 0x4C3017F: operator new(unsigned long) (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==27479==    by 0x1159FD: coind_create_template(YAAMP_COIND*) (coind_template.cpp:295)
+==27479==    by 0x116B8C: coind_create_job(YAAMP_COIND*, bool) (coind_template.cpp:535)
+==27479==    by 0x110C50: db_update_coinds(YAAMP_DB*) (db.cpp:352)
+==27479==    by 0x10E4CE: main (stratum.cpp:314)
+==27479== 
+==27479== 81,320 bytes in 535 blocks are still reachable in loss record 83 of 83
+==27479==    at 0x4C31B25: calloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==27479==    by 0x8C61736: ??? (in /usr/lib/x86_64-linux-gnu/libtasn1.so.6.5.5)
+==27479==    by 0x8C62C79: asn1_array2tree (in /usr/lib/x86_64-linux-gnu/libtasn1.so.6.5.5)
+==27479==    by 0x79B0C14: ??? (in /usr/lib/x86_64-linux-gnu/libgnutls.so.30.14.10)
+==27479==    by 0x798F580: ??? (in /usr/lib/x86_64-linux-gnu/libgnutls.so.30.14.10)
+==27479==    by 0x4010732: call_init (dl-init.c:72)
+==27479==    by 0x4010732: _dl_init (dl-init.c:119)
+==27479==    by 0x40010C9: ??? (in /lib/x86_64-linux-gnu/ld-2.27.so)
+==27479==    by 0x1: ???
+==27479==    by 0x1FFF00078E: ???
+==27479==    by 0x1FFF000798: ???
+==27479== 
+==27479== LEAK SUMMARY:
+==27479==    definitely lost: 0 bytes in 0 blocks
+==27479==    indirectly lost: 0 bytes in 0 blocks
+==27479==      possibly lost: 86,314 bytes in 38 blocks
+==27479==    still reachable: 203,221 bytes in 767 blocks
+==27479==         suppressed: 0 bytes in 0 blocks
+==27479== 
+==27479== ERROR SUMMARY: 38 errors from 38 contexts (suppressed: 0 from 0)
+==27479== ERROR SUMMARY: 38 errors from 38 contexts (suppressed: 0 from 0)

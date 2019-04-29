@@ -1,0 +1,6 @@
+#!/bin/bash
+
+screen -X -S main quit
+screen -X -S loop2 quit
+screen -X -S blocks quit
+screen -X -S debug quit

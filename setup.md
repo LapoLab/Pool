@@ -1,0 +1,29 @@
+- Follow the usual procedure the yiimp install script: the only real difference is that it uses a different github repo (a fork of yiimp) which holds lapo-specific modificiations.
+ In addition, these settings were provided at the prompt in the installation script:
+
+
+These are the settings which the pool has been tested with:
+                                                                                                                                       
+```
+Enter time zone (e.g. America/New_York) : Etc/UTC
+Server name (no http:// or www. just example.com) : <VPS IP Address here>
+Are you using a subdomain (pool.example.com?) [y/N] : N
+Enter support email (e.g. admin@example.com) : <admin email here>
+Set stratum to AutoExchange? i.e. mine any coinf with BTC address? [y/N] : y
+
+
+│Please enter a new location for /site/adminRights this is to customize the admin entrance url (e.g. myAdminpanel) : lapoAdminpanel
+│Enter your Public IP for admin access (http://www.whatsmyip.org/) : <Same VPS IP Address here>
+│Install Fail2ban? [Y/n] : Y
+│Install UFW and configure ports? [Y/n] : Y
+│Install LetsEncrypt SSL? IMPORTANT! You MUST have your domain name pointed to this server prior to running the script!! [y/N]: N
+│```
+│
+│No guarantees can be made as to whether or not a different model of settings will work.
+│
+│
+│- in /scripts/sql, modify the scripts 'login', 'runexpr', and 'runscript' so that the credentials
+│provided to mysql match the mysql entry in '~/.my.cnf'
+│
+│- View git log history to see source code changes.
+

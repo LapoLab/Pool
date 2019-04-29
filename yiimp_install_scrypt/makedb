@@ -1,0 +1,43 @@
+#!/bin/bash
+
+password='DLFpIZE2vrwCUBP6bGo3Di639q48DFtn'
+password2='cg9w5LzcEHGghjKcUWhP6Sw1ZVlTvXpd'
+
+Q1="CREATE DATABASE IF NOT EXISTS yiimpfrontend;"
+Q2="GRANT ALL ON *.* TO 'panel'@'localhost' IDENTIFIED BY '$password';"
+Q3="FLUSH PRIVILEGES;"
+SQL="${Q1}${Q2}${Q3}"
+
+sudo mysql -u root -p="" -e "$SQL"
+
+# create stratum user
+Q1="GRANT ALL ON *.* TO 'stratum'@'localhost' IDENTIFIED BY '$password2';"
+Q2="FLUSH PRIVILEGES;"
+SQL="${Q1}${Q2}"
+
+sudo mysql -u root -p="" -e "$SQL" 
+
+cd ~
+cd yiimp/sql
+
+# import sql dump
+sudo zcat 2016-04-03-yaamp.sql.gz | sudo mysql --defaults-group-suffix=host1
+
+# oh the humanity!
+sudo mysql --defaults-group-suffix=host1 --force < 2016-04-24-market_history.sql
+sudo mysql --defaults-group-suffix=host1 --force < 2016-04-27-settings.sql
+sudo mysql --defaults-group-suffix=host1 --force < 2016-05-11-coins.sql
+sudo mysql --defaults-group-suffix=host1 --force < 2016-05-15-benchmarks.sql
+sudo mysql --defaults-group-suffix=host1 --force < 2016-05-23-bookmarks.sql
+sudo mysql --defaults-group-suffix=host1 --force < 2016-06-01-notifications.sql
+sudo mysql --defaults-group-suffix=host1 --force < 2016-06-04-bench_chips.sql
+sudo mysql --defaults-group-suffix=host1 --force < 2016-11-23-coins.sql
+sudo mysql --defaults-group-suffix=host1 --force < 2017-02-05-benchmarks.sql
+sudo mysql --defaults-group-suffix=host1 --force < 2017-03-31-earnings_index.sql
+sudo mysql --defaults-group-suffix=host1 --force < 2017-05-accounts_case_swaptime.sql
+sudo mysql --defaults-group-suffix=host1 --force < 2017-06-payouts_coinid_memo.sql
+sudo mysql --defaults-group-suffix=host1 --force < 2017-09-notifications.sql
+sudo mysql --defaults-group-suffix=host1 --force < 2017-10-bookmarks.sql
+sudo mysql --defaults-group-suffix=host1 --force < 2017-11-segwit.sql
+sudo mysql --defaults-group-suffix=host1 --force < 2018-01-stratums_ports.sql
+sudo mysql --defaults-group-suffix=host1 --force < 2018-02-coins_getinfo.sql

@@ -1,0 +1,45 @@
+client_submit.cpp:34:	sprintf(submitvalues->header, "%s%s%s%s%s%s%s", version_be, templ->prevhash_be, submitvalues->merkleroot_be,
+client_submit.cpp:41:	sprintf(submitvalues->coinbase, "%s%s%s%s", templ->coinb1, nonce1, nonce2, templ->coinb2);
+client_submit.cpp:42:	int coinbase_len = strlen(submitvalues->coinbase);
+client_submit.cpp:46:	binlify(coinbase_bin, submitvalues->coinbase);
+client_submit.cpp:58:	ser_string_be(merkleroot.c_str(), submitvalues->merkleroot_be, 8);
+client_submit.cpp:64:		sprintf(submitvalues->header, "%s%s%s%s%s%s%s", templ->version, templ->prevhash_be, submitvalues->merkleroot_be,
+client_submit.cpp:66:		ser_string_be(submitvalues->header, submitvalues->header_be, 112/4);
+client_submit.cpp:73:		memcpy(submitvalues->header_be, submitvalues->header, sizeof(submitvalues->header));
+client_submit.cpp:75:		sprintf(submitvalues->header, "%s%s%s%s%s%s%s", templ->version, templ->prevhash_be, submitvalues->merkleroot_be,
+client_submit.cpp:77:		ser_string_be(submitvalues->header, submitvalues->header_be, 36); // 80+64 / sizeof(u32)
+client_submit.cpp:79:		sprintf(submitvalues->header, "%s%s%s%s%s%s", templ->version, templ->prevhash_be, submitvalues->merkleroot_be,
+client_submit.cpp:81:		ser_string_be(submitvalues->header, submitvalues->header_be, 20);
+client_submit.cpp:84:	binlify(submitvalues->header_bin, submitvalues->header_be);
+client_submit.cpp:86://	printf("%s\n", submitvalues->header_be);
+client_submit.cpp:87:	int header_len = strlen(submitvalues->header)/2;
+client_submit.cpp:88:	g_current_algo->hash_function((char *)submitvalues->header_bin, (char *)submitvalues->hash_bin, header_len);
+client_submit.cpp:90:	hexlify(submitvalues->hash_hex, submitvalues->hash_bin, 32);
+client_submit.cpp:91:	string_be(submitvalues->hash_hex, submitvalues->hash_be);
+client_submit.cpp:102:				submitvalues->header, 
+client_submit.cpp:104:				submitvalues->hash_be);
+client_submit.cpp:109:				submitvalues->header, 
+client_submit.cpp:111:				submitvalues->hash_be);	
+client_submit.cpp:169:		sprintf(submitvalues->coinbase, "%s%s%s%s", templ->coinb1, nonce1, nonce2, templ->coinb2);
+client_submit.cpp:170:		int coinbase_len = strlen(submitvalues->coinbase);
+client_submit.cpp:174:		binlify(coinbase_bin, submitvalues->coinbase);
+client_submit.cpp:182:		ser_string_be(merkleroot.c_str(), submitvalues->merkleroot_be, 8);
+client_submit.cpp:190:	int header_len = strlen(submitvalues->header)/2;
+client_submit.cpp:191:	g_current_algo->hash_function((char *)submitvalues->header_bin, (char *)submitvalues->hash_bin, header_len);
+client_submit.cpp:193:	hexlify(submitvalues->hash_hex, submitvalues->hash_bin, 32);
+client_submit.cpp:194:	string_be(submitvalues->hash_hex, submitvalues->hash_be);
+client_submit.cpp:208:	uint64_t hash_int = get_hash_difficulty(submitvalues->hash_bin);
+client_submit.cpp:238:			strcat(block_hex, submitvalues->coinbase);		// parent coinbase
+client_submit.cpp:239:			strcat(block_hex, submitvalues->hash_be);		// parent hash
+client_submit.cpp:263:			strcat(block_hex, submitvalues->header_be);
+client_submit.cpp:288:		sprintf(block_hex, "%s%s%s", submitvalues->header_be, count_hex, submitvalues->coinbase);
+client_submit.cpp:292:			sprintf(block_hex, "%s8400000008000000%s%s", submitvalues->header_be, count_hex, submitvalues->coinbase);
+client_submit.cpp:306:			hexlify(hex, submitvalues->header_bin, 180);
+client_submit.cpp:328:			merkle_hash((char *)submitvalues->header_bin, doublehash2, strlen(submitvalues->header_be)/2);
+client_submit.cpp:337:				strcpy(hash1, submitvalues->hash_hex);
+client_submit.cpp:342:				hash1, submitvalues->hash_be, templ->has_segwit_txs);
+client_submit.cpp:349:			if(!strcmp(coind->lastnotifyhash,submitvalues->hash_be)) {
+client_submit.cpp:350:				block_confirm(coind->id, submitvalues->hash_be);
+client_submit.cpp:356:				debuglog("hash2 %s\n", submitvalues->hash_be);
+remote_template.cpp:15:	uint64_t hash_int = get_hash_difficulty(submitvalues->hash_bin);
+Binary file .client_submit.cpp.swp matches

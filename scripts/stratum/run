@@ -1,0 +1,3 @@
+#!/bin/bash
+
+./stratum config/lyra2zz

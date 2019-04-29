@@ -1,0 +1,11 @@
+CREATE TABLE IF NOT EXISTS network_hash_debug_info (
+	id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+	timestamp_ns BIGINT NOT NULL,
+	hash_le0 BIGINT NOT NULL,
+	hash_le1 BIGINT NOT NULL,
+	hash_le2 BIGINT NOT NULL,
+	hash_le3 BIGINT NOT NULL,
+	client_ip INT NOT NULL
+);
+
+

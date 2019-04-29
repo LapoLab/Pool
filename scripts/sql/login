@@ -1,0 +1,3 @@
+#!/bin/bash
+
+mysql --pager=/usr/bin/less -u root --password="YourPassword"

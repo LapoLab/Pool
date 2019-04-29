@@ -1,0 +1,1 @@
+./rpc_curl.cpp ./rpc.cpp ./client_submit.cpp ./#stratum.cpp# ./#client_submit.cpp# ./share.h ./client.cpp ./stratum.h ./client.h ./db.cpp ./util.cpp ./share.cpp ./user.cpp ./sha3/haval_helper.c ./sha3/sph_shabal.c ./sha3/sph_haval.c ./sha3/sph_hefty1.c ./sha3/hamsi_helper.c ./sha3/sph_types.h ./util.h ./client_difficulty.cpp ./#client.cpp# ./#util.cpp# ./stratum.cpp ./stratum
